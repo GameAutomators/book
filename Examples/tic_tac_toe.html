@@ -53,7 +53,7 @@
         data-chapter-title="Tic Tac Toe"
         data-filepath="Examples/tic_tac_toe.md"
         data-basepath=".."
-        data-revision="Sat Jan 02 2016 12:12:45 GMT+0530 (IST)"
+        data-revision="Sat Jan 02 2016 18:47:14 GMT+0530 (IST)"
         data-innerlanguage="">
     
 
@@ -928,7 +928,36 @@
                 
                     <section class="normal" id="section-">
                     
-                        
+                        <h1 id="tic-tac-toe">Tic Tac Toe</h1>
+<h3 id="game-description">Game Description</h3>
+<p>This is a two-player game. The player and the system get alternative chances to mark their move on the 3x3 grid provided. One who marks 3 linearly oriented squares first, wins the game. If none of the players can do this, the game ends to be a draw. (The system&#x2019;s move is marked with a circle and the player&#x2019;s with a cross)</p>
+<p>Playstore Link: <a href="https://play.google.com/store/apps/details?id=com.pinkpointer.tictactoe&amp;hl=en" target="_blank">Tic Tac Toe</a></p>
+<h4 id="difficulty-level">Difficulty level</h4>
+<p>Moderate.</p>
+<h4 id="overview">Overview</h4>
+<p>The player starts at a point. The system&#x2019;s move is identified using Image processing, the further move is calculated by the algorithm and is marked in the concerned box using ADB Tool. This continues as the algorithm tries to win the game in the best way possible</p>
+<h4 id="requirements">Requirements</h4>
+<ul>
+<li>Computer with MATLAB, ADB Tool and required drivers set up.</li>
+<li>An Android Device with the &#x2018;Tic Tac Toe&#x2019; game installed on it. (Turn on the Developer options for better visualization)</li>
+<li>USB data transfer cable.</li>
+</ul>
+<h4 id="block-diagram">Block Diagram</h4>
+<h4 id="tutorial">Tutorial</h4>
+<h5 id="step-1-using-adb-tool-to-capture-screenshot">Step 1: Using ADB Tool to capture screenshot</h5>
+<p>The following command instantaneously takes the screenshot of the connected device and stores it in the SD card following the specified path.</p>
+<pre><code>system(&apos; adb shell screencap -p /sdcard/screen.png &apos;);
+</code></pre><p>The following command pulls it from the SD card of the android device into the working system following the path specified</p>
+<pre><code>system(&apos; adb pull /sdcard/screen.png &apos;);
+</code></pre><p>The pulled image is stored in the form of a matrix of pixel values by the MATLAB.</p>
+<h5 id="step-2-image-processing">Step 2: Image processing</h5>
+<p>Once the screenshot is obtained, nine different points in the 9 boxes are chosen and checked for the appearance of circle. The box where a circle is detected is identified to be the system&#x2019;s move and is given as input to the algorithm</p>
+<h5 id="step-3-algorithm">Step 3: Algorithm</h5>
+<p>The algorithm checks all the possible ways, chooses the most favourable move and returns it. Then, that box is tapped on (touched) using the ADB Tool.</p>
+<h5 id="step-4-using-adb-tool-to-simulate-touch">Step 4: Using ADB Tool to simulate touch</h5>
+<p>The following command taps at the point on the screen with the co-ordinates mentioned as (x, y). This is used to simulate touch at the appropriate points where we want to make a move.</p>
+<pre><code>system(&apos; adb shell input tap x y &apos;);
+</code></pre>
                     
                     </section>
                 
