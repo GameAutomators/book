@@ -53,7 +53,7 @@
         data-chapter-title="Find The Difference"
         data-filepath="Examples/find_the_difference.md"
         data-basepath=".."
-        data-revision="Sat Jan 02 2016 18:47:14 GMT+0530 (IST)"
+        data-revision="Sat Jan 02 2016 19:20:59 GMT+0530 (IST)"
         data-innerlanguage="">
     
 
@@ -928,7 +928,40 @@
                 
                     <section class="normal" id="section-">
                     
-                        
+                        <h1 id="find-the-differences">Find the differences</h1>
+<h3 id="game-description">Game Description</h3>
+<h6 id="the-game-has-two-images-with-ten-minute-differences-separated-horizontally-the-aim-of-the-player-is-to-find-the-ten-differences-and-tap-on-all-of-them-to-reach-the-next-level">The game has two images with ten minute differences separated horizontally. The aim of the player is to find the ten differences and tap on all of them to reach the next level.</h6>
+<p><strong>Playstore link</strong>:<a href="https://play.google.com/store/apps/details?id=com.ivanovandapps.ftdiaa3&amp;hl=en" target="_blank"> Find the  Differences</a></p>
+<p><img src="" alt="playstoreFTD"> <img src="" alt="game"></p>
+<h3 id="difficulty-level">Difficulty Level</h3>
+<h6 id="difficult">Difficult</h6>
+<h3 id="overview">Overview</h3>
+<h6 id="initially-the-image-is-divided-into-two-parts-and-are-checked-for-differences-by-using-the-image-processing-technique-the-differences-are-made-significant-using-an-algorithm-and-the-final-ten-differences-are-obtained-the-adb-tool-is-used-to-tap-touch-on-the-found-differences">Initially, the image is divided into two parts and are checked for differences by using the Image processing technique. The differences are made significant using an algorithm and the final ten differences are obtained. The ADB Tool is used to tap (touch) on the found differences.</h6>
+<h3 id="requirements">Requirements</h3>
+<ul>
+<li>Computer with MATLAB, ADB Tool and required drivers set up.<ul>
+<li>An Android Device with the &#x2018;My Piano&#x2019; installed on it. (Turn on the Developer options for better visualization)</li>
+<li>USB data transfer cable</li>
+</ul>
+</li>
+</ul>
+<h3 id="block-diagram">Block diagram</h3>
+<p><img src="" alt="blockdiagram"></p>
+<h3 id="tutorial">Tutorial</h3>
+<h5 id="step-1-using-adb-tool-to-capture-screenshot">Step 1: Using ADB Tool to capture screenshot</h5>
+<p> The following command instantaneously takes the screenshot of the connected device and stores it in the SD card following the specified path.   </p>
+<pre><code>system(&apos; adb shell screencap -p /sdcard/screen.png &apos;);
+</code></pre><p> The following command pulls it from the SD card of the android device into the working system following the path specified</p>
+<pre><code>system(&apos; adb pull /sdcard/screen.png &apos;);
+</code></pre><p> The pulled image is stored in the form of a matrix of pixel values by the MATLAB</p>
+<h5 id="step-2-image-processing">Step 2: Image processing</h5>
+<p>Both the images are separated and stored in two different matrices. The matrices are subtracted to get the difference matrix.</p>
+<h5 id="step-3-algorithm">Step 3: Algorithm</h5>
+<p>The difference matrix is converted into a binary image and the differences are made more significant by increasing the size of the differences. The centroids of the ten differences are found.</p>
+<h5 id="step-4-using-adb-tool-to-simulate-touch">Step 4: Using ADB Tool to simulate touch</h5>
+<p>The following command taps at the point on the screen with the co-ordinates mentioned as (x, y). This is used to simulate touch at the centroid of the differences.</p>
+<pre><code>system(&apos; adb shell input tap x y &apos;);
+</code></pre>
                     
                     </section>
                 
