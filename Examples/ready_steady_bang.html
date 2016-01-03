@@ -5,7 +5,7 @@
         
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <title>Ready Steady Bang | Building Mobile Game Solvers</title>
+        <title>Ready Steady Bang | </title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="generator" content="GitBook 2.6.6">
@@ -53,7 +53,7 @@
         data-chapter-title="Ready Steady Bang"
         data-filepath="Examples/ready_steady_bang.md"
         data-basepath=".."
-        data-revision="Sat Jan 02 2016 19:20:59 GMT+0530 (IST)"
+        data-revision="Sun Jan 03 2016 18:29:18 GMT+0530 (IST)"
         data-innerlanguage="">
     
 
@@ -480,15 +480,7 @@
     
         <li class="chapter " data-level="5" data-path="Methods/index.html">
             
-                
-                    <a href="../Methods/index.html">
-                
-                        <i class="fa fa-check"></i>
-                        
-                            <b>5.</b>
-                        
-                        Chapter 4 - Different Methods
-                    </a>
+            <span><b>5.</b> Chapter 4 - Different Methods</span>
             
             
             <ul class="articles">
@@ -496,30 +488,14 @@
     
         <li class="chapter " data-level="5.1" data-path="Methods/circuits.html">
             
-                
-                    <a href="../Methods/circuits.html">
-                
-                        <i class="fa fa-check"></i>
-                        
-                            <b>5.1.</b>
-                        
-                        Using electronic Circuits
-                    </a>
+            <span><b>5.1.</b> Using electronic Circuits</span>
             
             
         </li>
     
         <li class="chapter " data-level="5.2" data-path="Methods/using.html">
             
-                
-                    <a href="../Methods/using.html">
-                
-                        <i class="fa fa-check"></i>
-                        
-                            <b>5.2.</b>
-                        
-                        Using ADB and IP
-                    </a>
+            <span><b>5.2.</b> Using ADB and IP</span>
             
             
             <ul class="articles">
@@ -527,15 +503,7 @@
     
         <li class="chapter " data-level="5.2.1" data-path="Methods/setup.html">
             
-                
-                    <a href="../Methods/setup.html">
-                
-                        <i class="fa fa-check"></i>
-                        
-                            <b>5.2.1.</b>
-                        
-                        Setup
-                    </a>
+            <span><b>5.2.1.</b> Setup</span>
             
             
         </li>
@@ -547,45 +515,21 @@
     
         <li class="chapter " data-level="5.3" data-path="Methods/advantages.html">
             
-                
-                    <a href="../Methods/advantages.html">
-                
-                        <i class="fa fa-check"></i>
-                        
-                            <b>5.3.</b>
-                        
-                        Advantages
-                    </a>
+            <span><b>5.3.</b> Advantages</span>
             
             
         </li>
     
         <li class="chapter " data-level="5.4" data-path="Methods/disadvantages.html">
             
-                
-                    <a href="../Methods/disadvantages.html">
-                
-                        <i class="fa fa-check"></i>
-                        
-                            <b>5.4.</b>
-                        
-                        Disadvantages
-                    </a>
+            <span><b>5.4.</b> Disadvantages</span>
             
             
         </li>
     
         <li class="chapter " data-level="5.5" data-path="Methods/examples.html">
             
-                
-                    <a href="../Methods/examples.html">
-                
-                        <i class="fa fa-check"></i>
-                        
-                            <b>5.5.</b>
-                        
-                        Examples
-                    </a>
+            <span><b>5.5.</b> Examples</span>
             
             
         </li>
@@ -918,7 +862,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href="../" >Building Mobile Game Solvers</a>
+        <a href="../" ></a>
     </h1>
 </div>
 
@@ -928,7 +872,51 @@
                 
                     <section class="normal" id="section-">
                     
-                        
+                        <h1 id="ready-steady-bang">Ready Steady Bang</h1>
+<p>The game has two players, one is system automated and the other is player controlled. Both the players are allowed to shoot as soon as the word <strong>&apos;Bang&apos;</strong> prompted on the screen. The objective of the game is to fire the opponent before he does by tapping anywhere on the screen immediately after the &#xFFFD;BANG&#xFFFD; appears.</p>
+<p><strong>Playstore Link:</strong>  <a href="https://play.google.com/store/apps/details?id=com.noodlecake.rsb&amp;hl=en" target="_blank">Ready Steady Bang</a></p>
+<p><img src="" alt="PlayStoreImage"> <img src="" alt="Game Image"></p>
+<h5 id="difficulty-level">Difficulty Level</h5>
+<p>Moderate</p>
+<h5 id="overview">Overview</h5>
+<p>As soon as the &#xFFFD;BANG&#xFFFD; appears, the voltage output from the pin where the LDR is connected decreases. Whenever a drop in voltage is detected, the output pin is set to LOW and thus the Relay output is connected to ground which is equivalent to a &#xFFFD;Touch&#xFFFD;.</p>
+<h5 id="requirements">Requirements</h5>
+<ul>
+<li>An Android Device with the &#xFFFD;Ready Steady Bang&#xFFFD; game installed on it. (Turn on the  Developer options for better visualization)</li>
+<li>Arduino, Breadboard, 22k Resistor, LDR, Relay, Connecting wires, a conducting metal coin</li>
+<li>Computer to program Arduino</li>
+</ul>
+<h5 id="circuit-diagram-using-fritzing">Circuit diagram using fritzing:</h5>
+<p><img src="" alt="image"></p>
+<h5 id="tutorial">Tutorial</h5>
+<p><strong>Step 1: Sensor placement</strong></p>
+<p>The LDR is fixed on the screen exactly where the &#xFFFD;BANG&#xFFFD; appears. When the &#xFFFD;BANG&#xFFFD; appears, the intensity of the light from the screen being detected by the LDR decreases.</p>
+<p><strong>Step 2: Touch simulation</strong></p>
+<p>The coin is placed on the screen and the output from the relay is connected to it. When the relay output is grounded, it simulates a touch on the screen and when it is open circuited, it withdraws the touch.</p>
+<p><strong>Step 3: Arduino code</strong></p>
+<ol>
+<li>Initially, set the output pin HIGH.<pre><code>digitalWrite(4,HIGH);
+</code></pre></li>
+<li>Read the input from the input pin, make a condition to check whether the input is less than the threshold voltage value (to be found experimentally) and check it with the condition.
+```
+int a=analogRead(A0);</li>
+</ol>
+<p>If (a &gt; Threshold value)
+ {
+    :
+    :
+ }</p>
+<pre><code>
+3. Whenever it satisfies the condition: (Simulate the touch)
+a. Delay the period of time for which the &#xFFFD;BANG&#xFFFD; appears.
+</code></pre><p> delay(30);</p>
+<pre><code>b. Set the output pin to LOW- this is equivalent to a touch on the screen
+</code></pre><p>digitalWrite(4,LOW);</p>
+<pre><code>c. Give a small delay and then un-touch the screen by setting the output pin to HIGH.
+</code></pre><p>delay(500);</p>
+<p>digitalWrite(4,HIGH);
+```</p>
+
                     
                     </section>
                 

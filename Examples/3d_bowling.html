@@ -5,7 +5,7 @@
         
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <title>3D Bowling | Building Mobile Game Solvers</title>
+        <title>3D Bowling | </title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="generator" content="GitBook 2.6.6">
@@ -53,7 +53,7 @@
         data-chapter-title="3D Bowling"
         data-filepath="Examples/3d_bowling.md"
         data-basepath=".."
-        data-revision="Sat Jan 02 2016 19:20:59 GMT+0530 (IST)"
+        data-revision="Sun Jan 03 2016 18:29:18 GMT+0530 (IST)"
         data-innerlanguage="">
     
 
@@ -480,15 +480,7 @@
     
         <li class="chapter " data-level="5" data-path="Methods/index.html">
             
-                
-                    <a href="../Methods/index.html">
-                
-                        <i class="fa fa-check"></i>
-                        
-                            <b>5.</b>
-                        
-                        Chapter 4 - Different Methods
-                    </a>
+            <span><b>5.</b> Chapter 4 - Different Methods</span>
             
             
             <ul class="articles">
@@ -496,30 +488,14 @@
     
         <li class="chapter " data-level="5.1" data-path="Methods/circuits.html">
             
-                
-                    <a href="../Methods/circuits.html">
-                
-                        <i class="fa fa-check"></i>
-                        
-                            <b>5.1.</b>
-                        
-                        Using electronic Circuits
-                    </a>
+            <span><b>5.1.</b> Using electronic Circuits</span>
             
             
         </li>
     
         <li class="chapter " data-level="5.2" data-path="Methods/using.html">
             
-                
-                    <a href="../Methods/using.html">
-                
-                        <i class="fa fa-check"></i>
-                        
-                            <b>5.2.</b>
-                        
-                        Using ADB and IP
-                    </a>
+            <span><b>5.2.</b> Using ADB and IP</span>
             
             
             <ul class="articles">
@@ -527,15 +503,7 @@
     
         <li class="chapter " data-level="5.2.1" data-path="Methods/setup.html">
             
-                
-                    <a href="../Methods/setup.html">
-                
-                        <i class="fa fa-check"></i>
-                        
-                            <b>5.2.1.</b>
-                        
-                        Setup
-                    </a>
+            <span><b>5.2.1.</b> Setup</span>
             
             
         </li>
@@ -547,45 +515,21 @@
     
         <li class="chapter " data-level="5.3" data-path="Methods/advantages.html">
             
-                
-                    <a href="../Methods/advantages.html">
-                
-                        <i class="fa fa-check"></i>
-                        
-                            <b>5.3.</b>
-                        
-                        Advantages
-                    </a>
+            <span><b>5.3.</b> Advantages</span>
             
             
         </li>
     
         <li class="chapter " data-level="5.4" data-path="Methods/disadvantages.html">
             
-                
-                    <a href="../Methods/disadvantages.html">
-                
-                        <i class="fa fa-check"></i>
-                        
-                            <b>5.4.</b>
-                        
-                        Disadvantages
-                    </a>
+            <span><b>5.4.</b> Disadvantages</span>
             
             
         </li>
     
         <li class="chapter " data-level="5.5" data-path="Methods/examples.html">
             
-                
-                    <a href="../Methods/examples.html">
-                
-                        <i class="fa fa-check"></i>
-                        
-                            <b>5.5.</b>
-                        
-                        Examples
-                    </a>
+            <span><b>5.5.</b> Examples</span>
             
             
         </li>
@@ -918,7 +862,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href="../" >Building Mobile Game Solvers</a>
+        <a href="../" ></a>
     </h1>
 </div>
 
@@ -928,7 +872,36 @@
                 
                     <section class="normal" id="section-">
                     
-                        
+                        <h1 id="3d--bowling">3D  Bowling</h1>
+<h5 id="game-description">Game Description</h5>
+<p>This is the best and most realistic 3D bowling game on the Android phones. It is the only bowling game that fully embraces the incredible 3D physics engine and effects.
+Be the world&apos;s best player in 3D bowling game. How many consecutive strikes can you score?</p>
+<p><strong>Playstore Link:</strong> <a href="https://play.google.com/store/apps/details?id=com.threed.bowling&amp;hl=en" target="_blank">3D Bowling</a>
+<img src="" alt="playstore image"> <img src="" alt="game"></p>
+<h5 id="difficulty-level">Difficulty Level</h5>
+<p>Easy</p>
+<h5 id="overview">Overview</h5>
+<p>The system&#x2019;s perfect move is identified by using Image processing, the further move is calculated by the algorithm and is marked in the concerned box using ADB Tool. This continues as the algorithm tries to win the game in the best way possible</p>
+<h5 id="requirements">Requirements</h5>
+<p> Computer with MATLAB, ADB Tool and required drivers set up.
+An Android Device with the &#x2018;3D Bowling&#x2019; game installed on it. (Turn on the Developer options for better visualization)
+USB data transfer cable</p>
+<h5 id="block-diagram">Block Diagram</h5>
+<p><img src="" alt="image"></p>
+<h5 id="tutorial">Tutorial</h5>
+<p><strong>Step 1: Using ADB Tool to capture screenshot</strong></p>
+<p>The following command instantaneously takes the screenshot of the connected device and stores it in the SD card following the specified path.</p>
+<pre><code>system(&apos; adb shell screencap -p /sdcard/screen.png &apos;);
+</code></pre><p>The following command pulls it from the SD card of the android device into the working system following the path specified</p>
+<pre><code>system(&apos; adb pull /sdcard/screen.png &apos;);
+</code></pre><p>The pulled image is stored in the form of a matrix of pixel values by the MATLAB</p>
+<p><strong>Step 2: Image processing</strong>
+Once the screenshot is obtained, the centre point of the ball and the centre of the lane and these are taken as an input to the command and system has to make a simple swipe.
+<strong>Step 3: Using ADB Tool to simulate swipe</strong>
+The following command . makes a swipe operation on the screen with the co-ordinates mentioned as (x1, y1) and (x2, y2)This is used to simulate swipe at the appropriate points where we want to make a swipe.</p>
+<pre><code>system(&apos; adb shell input swipe x1 y1 x2 y2 &apos;);
+</code></pre><p>Ideally, the algorithm should be able to win each and every time because it&#x2019;s playing the best move every time. But there is a random element that has been programmed into the game because of which the ideal move doesn&#x2019;t always work.</p>
+
                     
                     </section>
                 
