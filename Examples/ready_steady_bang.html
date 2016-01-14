@@ -53,7 +53,7 @@
         data-chapter-title="Ready Steady Bang"
         data-filepath="Examples/ready_steady_bang.md"
         data-basepath=".."
-        data-revision="Thu Jan 14 2016 09:17:40 GMT+0530 (IST)"
+        data-revision="Thu Jan 14 2016 13:39:21 GMT+0530 (IST)"
         data-innerlanguage="">
     
 
@@ -108,6 +108,21 @@
                             <b>1.1.</b>
                         
                         Overview
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="Introduction/prerequisites.html">
+            
+                
+                    <a href="../Introduction/prerequisites.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.2.</b>
+                        
+                        Prerequisites
                     </a>
             
             
@@ -671,50 +686,59 @@
                     <section class="normal" id="section-">
                     
                         <h1 id="ready-steady-bang">Ready Steady Bang</h1>
-<p>The game has two players, one is system automated and the other is player controlled. Both the players are allowed to shoot as soon as the word <strong>&apos;Bang&apos;</strong> prompted on the screen. The objective of the game is to fire the opponent before he does by tapping anywhere on the screen immediately after the &#xFFFD;BANG&#xFFFD; appears.</p>
+<h3 id="about-the-game">About the game</h3>
+<p>The game has two players, one is system automated and the other is player controlled. Both the players are allowed to shoot as soon as the word <strong>&apos;Bang&apos;</strong> prompted on the screen. The objective of the game is to fire the opponent before he does by tapping anywhere on the screen immediately after the &apos;BANG&apos; appears.</p>
 <p><strong>Playstore Link:</strong>  <a href="https://play.google.com/store/apps/details?id=com.noodlecake.rsb&amp;hl=en" target="_blank">Ready Steady Bang</a></p>
-<p><img src="../Images/BangPlaystore.png" alt="PlayStoreImage | width=200px"> 
-<img src="../Images/BangGameplay.png" alt="Game Image | width=200px"></p>
+<!-- Some Bootstrap segments are needed for front end because of markdown limitations-->
+<p><div class="row" style="text-align:center;">
+    <img src="../Images/BangPlaystore.png" alt="Play Store Image" height="500px"> 
+    <img src="../Images/BangGameplay.png" alt="Game Play Image" height="500px">
+</div>
+<!-- End Bootstrap segment --></p>
 <h5 id="difficulty-level">Difficulty Level</h5>
 <p>Moderate</p>
 <h5 id="overview">Overview</h5>
-<p>As soon as the &#xFFFD;BANG&#xFFFD; appears, the voltage output from the pin where the LDR is connected decreases. Whenever a drop in voltage is detected, the output pin is set to LOW and thus the Relay output is connected to ground which is equivalent to a &#xFFFD;Touch&#xFFFD;.</p>
+<p>As soon as the &apos;BANG&apos; appears, the voltage output from the pin where the LDR is connected decreases. Whenever a drop in voltage is detected, the output pin is set to LOW and thus the Relay output is connected to ground which is equivalent to a &apos;Touch&apos;.</p>
 <h5 id="requirements">Requirements</h5>
 <ul>
-<li>An Android Device with the &#xFFFD;Ready Steady Bang&#xFFFD; game installed on it. (Turn on the  Developer options for better visualization)</li>
+<li>An Android Device with the &apos;Ready Steady Bang&apos; game installed on it. (Turn on the  Developer options for better visualization)</li>
 <li>Arduino, Breadboard, 22k Resistor, LDR, Relay, Connecting wires, a conducting metal coin</li>
 <li>Computer to program Arduino</li>
 </ul>
 <h5 id="circuit-diagram-using-fritzing">Circuit diagram using fritzing:</h5>
-<p><img src="../Images/BangFritzing.png" alt="image"></p>
+<p><img src="../Images/BangFritzing.png"></p>
 <h5 id="tutorial">Tutorial</h5>
 <p><strong>Step 1: Sensor placement</strong></p>
-<p>The LDR is fixed on the screen exactly where the &#xFFFD;BANG&#xFFFD; appears. When the &#xFFFD;BANG&#xFFFD; appears, the intensity of the light from the screen being detected by the LDR decreases.</p>
+<p>The LDR is fixed on the screen exactly where the &apos;BANG&apos; appears. When the &apos;BANG&apos; appears, the intensity of the light from the screen being detected by the LDR decreases.</p>
 <p><strong>Step 2: Touch simulation</strong></p>
 <p>The coin is placed on the screen and the output from the relay is connected to it. When the relay output is grounded, it simulates a touch on the screen and when it is open circuited, it withdraws the touch.</p>
 <p><strong>Step 3: Arduino code</strong></p>
 <ol>
-<li>Initially, set the output pin HIGH.<pre><code>digitalWrite(4,HIGH);
-</code></pre></li>
-<li>Read the input from the input pin, make a condition to check whether the input is less than the threshold voltage value (to be found experimentally) and check it with the condition.
-```
-int a=analogRead(A0);</li>
-</ol>
-<p>If (a &gt; Threshold value)
+<li>Initially, set the output pin HIGH.<pre><code class="lang-C"> digitalWrite(<span class="hljs-number">4</span>,HIGH);
+</code></pre>
+</li>
+<li><p>Read the input from the input pin, make a condition to check whether the input is less than the threshold voltage value (to be found experimentally) and check it with the condition.</p>
+<pre><code class="lang-C"> <span class="hljs-keyword">int</span> a=analogRead(A0);
+ <span class="hljs-keyword">if</span> (a &gt; Threshold value)
  {
-    :
-    :
- }</p>
-<pre><code>
-3. Whenever it satisfies the condition: (Simulate the touch)
-a. Delay the period of time for which the &#xFFFD;BANG&#xFFFD; appears.
-</code></pre><p> delay(30);</p>
-<pre><code>b. Set the output pin to LOW- this is equivalent to a touch on the screen
-</code></pre><p>digitalWrite(4,LOW);</p>
-<pre><code>c. Give a small delay and then un-touch the screen by setting the output pin to HIGH.
-</code></pre><p>delay(500);</p>
-<p>digitalWrite(4,HIGH);
-```</p>
+     :
+     :
+ }
+</code></pre>
+</li>
+<li><p>Whenever it satisfies the condition: (Simulate the touch)<br>
+ a. Delay the period of time for which the &apos;BANG&apos; appears.</p>
+<pre><code class="lang-C"> delay(<span class="hljs-number">30</span>);
+</code></pre>
+<p> b. Set the output pin to LOW- this is equivalent to a touch on the screen</p>
+<pre><code class="lang-C"> digitalWrite(<span class="hljs-number">4</span>,LOW);
+</code></pre>
+<p> c. Give a small delay and then un-touch the screen by setting the output pin to HIGH.</p>
+<pre><code class="lang-C"> delay(<span class="hljs-number">500</span>);
+ digitalWrite(<span class="hljs-number">4</span>,HIGH);
+</code></pre>
+</li>
+</ol>
 
                     
                     </section>
