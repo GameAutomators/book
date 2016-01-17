@@ -53,7 +53,7 @@
         data-chapter-title="Using ADB and IP"
         data-filepath="Methods/adb.md"
         data-basepath=".."
-        data-revision="Sat Jan 16 2016 21:14:37 GMT+0530 (IST)"
+        data-revision="Sun Jan 17 2016 12:12:45 GMT+0530 (IST)"
         data-innerlanguage="">
     
 
@@ -685,47 +685,50 @@
                 
                     <section class="normal" id="section-">
                     
-                        <h1 id="52-using-adb-tool">5.2. Using ADB tool</h1>
+                        <h1 id="using-adb-tool">Using ADB tool</h1>
 <p>Android Debug Bridge (adb) is a tool that allows the computer to communicate with   attached devices, capturing screenshots of the mobile screen, simulating virtual touches and swipes, etc., The latter two are the things that we will be using over and over again in the following tutorials that we use to solve various games.</p>
-<h5 id="approach">Approach</h5>
+<h3 id="approach">Approach</h3>
 <p><img src="../Images/methods-2.jpg" alt="image1"></p>
 <p><em>Fig: the image depicts the workflow of algorithm for solving the games</em></p>
 <p>We use adb tool to take a screenshot of the phone, and then use the next command to send over the image to the computer. Next, we use a set of image processing techniques to extract relevant features in the image that are required to solve the games. </p>
-<h5 id="installing-adb-tool">Installing ADB Tool</h5>
-<p>We need to install Java JDK or Android SDK in order to be able to use the ADB tool. Before installing either, you&#xFFFD;ll have to install Oracle&#xFFFD;s Java development kit. If you see a Java-related error during installation, ensure you downloaded and installed the x86 version of the JDK, not the x64 one.</p>
+<h3 id="installing-adb-tool">Installing ADB Tool</h3>
+<p>We need to install Java JDK or Android SDK in order to be able to use the ADB tool. Before installing either, you&apos;ll have to install Oracle&apos;s Java development kit. If you see a Java-related error during installation, ensure you downloaded and installed the x86 version of the JDK, not the x64 one.</p>
 <h5 id="android-sdk-setup">Android SDK Setup</h5>
 <p>Once the Android SDK is downloaded and installed, launch the SDK Manager application from your Start menu.
-Enable the Android SDK Platform-tools checkbox and click the Install button. This downloads and installs the platform-tools package, which contains ADB and other utilities.
-<img src="" alt="image2"></p>
+Enable the Android SDK Platform-tools checkbox and click the Install button. This downloads and installs the platform-tools package, which contains ADB and other utilities.</p>
 <h5 id="enable-usb-debugging">Enable USB Debugging</h5>
-<p>To use ADB with your Android device, you must enable USB debugging on it. You&#xFFFD;ll find this option under Developer Options on your device&#xFFFD;s Settings screen.
-<img src="" alt="image3">
-While installing, specify the location where it needs to be saved.</p>
+<p>To use ADB with your Android device, you must enable USB debugging on it. You&apos;ll find this option under Developer Options on your device&apos;s Settings screen.</p>
+<p>While installing, specify the location where it needs to be saved.</p>
 <h5 id="test-adb-and-install-device-drivers">Test ADB and Install Device Drivers</h5>
-<p>Locate the android-sdk&#xFFFD;s folder. Note the SDK path displayed at the top of the SDK Manager window.
-<img src="" alt="image4">
-If you used the default install location, you&#xFFFD;ll find ADB in the following directory:
+<p>Locate the android-sdk&apos;s folder. Note the SDK path displayed at the top of the SDK Manager window.</p>
+<p>If you used the default install location, you&apos;ll find ADB in the following directory:
 C:\Users\NAME\AppData\Local\Android\android-sdk\platform-tools
-If you used a different install location, you&#xFFFD;ll find ADB in the platform-tools directory inside your android-sdk directory.
-Browse to this directory, hold Shift and right-click inside it, and select Open command window here.
-<img src="" alt="image5">
-To test whether ADB is working properly, connect your Android device to your computer using a USB cable and run the following command:
-adb devices
-<img src="" alt="image6">
-You should see a device in the list. If your device is connected but nothing appears in the list, you&#xFFFD;ll need to install the appropriate drivers.
-Your manufacturer may provide a downloadable driver package for your device. You can also try installing the Google USB Driver from the Extras folder in the SDK Manager window.
-<img src="" alt="image7">
-You may have to force Windows to use the installed drivers for your device. Open the Device Manager (click Start, type Device Manager, and press Enter), locate your device, right-click it and select Properties. You may see a yellow exclamation mark next to the device if its driver isn&#xFFFD;t installed properly.
-<img src="" alt="image8"></p>
+If you used a different install location, you&apos;ll find ADB in the platform-tools directory inside your android-sdk directory. Browse to this directory, hold Shift and right-click inside it, and select Open command window here.</p>
+<p>To test whether ADB is working properly, connect your Android device to your computer using a USB cable and run the following command:</p>
+<pre><code class="lang-MATLAB">adb devices
+</code></pre>
+<p>You should see a device in the list. If your device is connected but nothing appears in the list, you&apos;ll need to install the appropriate drivers.
+Your manufacturer may provide a downloadable driver package for your device. You can also try installing the Google USB Driver from the Extras folder in the SDK Manager window.</p>
+<p>You may have to force Windows to use the installed drivers for your device. Open the Device Manager (click Start, type Device Manager, and press Enter), locate your device, right-click it and select Properties. You may see a yellow exclamation mark next to the device if its driver isn&apos;t installed properly.</p>
 <h5 id="basic-adb-commands">Basic ADB commands</h5>
-<p>Here are the commands that can be implemented using adb driver.
-adb pull // used to pull the image into the working directory.
-adb shell screencap //takes a screenshot of the device connected.
-adb shell input tap x y // taps at the point on the screen with the co-ordinates mentioned as (x, y).
-adb shell input swipe x1 y1 x2 y2 w //makes a swipe operation on the screen with the co-ordinates mentioned as (x1, y1) and (x2, y2) within w seconds.
-adb shell rm //used to remove the screenshot in order to save the memory of the device connected.</p>
-<h5 id="when-and-why-to-use-adb-tool">When and why to use ADB tool?</h5>
-<p>Advantages of using ADB tool are listed below:</p>
+<p>Here are the commands that can be implemented using adb driver.</p>
+<pre><code class="lang-MATLAB">// used to pull the image into the working directory
+adb pull 
+
+//takes a screenshot of the device connected
+adb shell screencap 
+
+// taps at the point on the screen with the co-ordinates mentioned as (x, y).
+adb shell input tap x y
+
+//makes a swipe operation on the screen with the co-ordinates mentioned as (x1, y1) and (x2, y2) within w seconds
+adb shell input swipe x1 y1 x2 y2 w
+
+//used to remove the screenshot in order to save the memory of the device connected
+adb shell rm
+</code></pre>
+<h3 id="when-and-why-to-use-adb-tool">When and why to use ADB tool?</h3>
+<h5 id="advantages-of-using-adb-tool">Advantages of using ADB tool</h5>
 <ul>
 <li>We can get direct screenshots of our android phone because of which we get the accurate pixels values of the images.</li>
 <li>Since we access the locations on the screen through their coordinates, we get accurate touch and swipe.</li>
@@ -733,14 +736,14 @@ adb shell rm //used to remove the screenshot in order to save the memory of the 
 <li>Complex algorithms can be implemented efficiently in MATLAB.</li>
 <li>Everything happening on the screen is visible to us unlike as in the case of electronic circuit which covers the screen.</li>
 </ul>
-<h5 id="are-there-any-disadvantages-of-adb-tool">Are there any disadvantages of ADB tool?</h5>
+<h5 id="disadvantages-of-adb-tool">Disadvantages of ADB tool?</h5>
 <ul>
 <li>Since ADB is taking the screenshots and sending it to laptop ,it requires some amount of time to perform that operation.Thus, its processing is slow of about some seconds.</li>
 <li>ADB tool takes time to set up.</li>
 <li>ADB tool cannot perform curved swipe.</li>
 </ul>
-<h5 id="games-which-can-be-solved-using-adb-tool">Games which can be solved using ADB tool</h5>
-<p> An Android game &#xFFFD;STICK HERO&#xFFFD; and &#xFFFD;FIND THE DIFFERENCE&#xFFFD; can be solved      using this ADB tool because the game is not time bounded and we just need to simulate virtual touch to play these game.</p>
+<h3 id="games-which-can-be-solved-using-adb-tool">Games which can be solved using ADB tool</h3>
+<p> An Android game Stick Hero and Find the difference can be solved using this ADB tool because the game is not time bounded and we just need to simulate virtual touch to play these game.</p>
 
                     
                     </section>

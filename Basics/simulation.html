@@ -53,7 +53,7 @@
         data-chapter-title="Simulation"
         data-filepath="Basics/simulation.md"
         data-basepath=".."
-        data-revision="Sat Jan 16 2016 21:14:37 GMT+0530 (IST)"
+        data-revision="Sun Jan 17 2016 12:12:45 GMT+0530 (IST)"
         data-innerlanguage="">
     
 
@@ -687,17 +687,61 @@
                     
                         <h1 id="touch-simulation">Touch Simulation</h1>
 <p>Simulating touch is one of the critical parts of any game. There are multiple ways in which we can simulating the touch. </p>
-<h2 id="mechanical">Mechanical</h2>
+<h3 id="mechanical">Mechanical</h3>
 <p>The touch can be simulated by a mechanical system consisting of a stylus connected to servo motor. The stylus must be connected to the servo in such a way that when the servo rotates, the stylus hits the screen. </p>
+<p>This is the code that you can use to control the touch in this case. Let us assume that the mechanical arrangement is adjusted in such a way that the angle when the stylus touches the screen is 0 degrees and that the stylus doesn&apos;t touch the screen for 30 degrees.</p>
+<pre><code class="lang-C"><span class="hljs-comment">// import the servo motor library</span>
+<span class="hljs-preprocessor">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;Servo.h&gt;</span></span>
+
+Servo myservo;  <span class="hljs-comment">// create servo object to control a servo</span>
+
+<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">setup</span><span class="hljs-params">()</span> 
+</span>{
+    myservo.attach(<span class="hljs-number">9</span>);  <span class="hljs-comment">// attaches the servo on pin 9 to the servo object</span>
+}
+
+<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">loop</span><span class="hljs-params">()</span> 
+</span>{
+    <span class="hljs-comment">// below are the angles for touching</span>
+    <span class="hljs-comment">// 0 - touch, 30 - no touch</span>
+
+    myservo.write(<span class="hljs-number">30</span>); <span class="hljs-comment">// simulate no touch</span>
+    delay(<span class="hljs-number">1000</span>); 
+
+    myservo.write(<span class="hljs-number">0</span>); <span class="hljs-comment">// simulate touch</span>
+    delay(<span class="hljs-number">1000</span>);
+}
+</code></pre>
 <p>But the problem with this method is that it is relatively slow. It is constrained by the speed of servo movement. To overcome this problem, we can use one of the following two ways.</p>
-<h2 id="using-relay">Using Relay</h2>
+<h3 id="using-relay">Using Relay</h3>
 <p>This and the next method can only work on capacitive touch screens. For this we have to understand how they work. The electrodes apply a low voltage to the conductive layer creating a uniform electrostatic field. When a finger hits the screen a tiny electrical charge is transferred to the finger to complete the circuit creating a voltage drop at that point on the screen. The location of this voltage drop is recorded by the controller.</p>
 <p><img src="../Images/CapactiveTouchScreen.png" alt="Capacitive Touch Screen"></p>
+<p>Fig: Depiction of how touch screen works. 
+<em>Credit for image: The Curious Engineer, YouTube</em></p>
 <p>We are going to use this concept, except that in the place of a finger, we use the ground pin on the arduino to transfer the charge on the screen. To have more surface area on the display of the screen, we use a coin. Relays are directly connected to the output pin of the Arduino. As shown in the figure, it is equivalent to a touch if the voltage given is high as there is a path for the current to flow to the ground. It is equivalent to not touching, if the voltage given is low.</p>
 <p><img src="../Images/RelayInternals1.png" alt="Relay when no touch">
 <img src="../Images/RelayInternals2.png" alt="Relay with touch"></p>
-<h2 id="using-transistors">Using Transistors</h2>
-<p>This method can work faster than a relay too. You have to use a transistor in place of a relay for switching between open circuit and ground.</p>
+<p>Here&apos;s how you have to connect the relay in a circuit to simulate touch.</p>
+<p><img src="../Images/relay_arduino.png" alt="Relay Arduino Circuit"></p>
+<p>Here&apos;s the code to simulate touch and no touch alternatively with a time perios of two seconds.</p>
+<pre><code class="lang-C"><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">setup</span><span class="hljs-params">()</span> 
+</span>{
+    pinMode(<span class="hljs-number">4</span>, OUTPUT);
+}
+
+<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">loop</span><span class="hljs-params">()</span> 
+</span>{
+    <span class="hljs-comment">// below are the values for touching</span>
+
+    digitalWrite(<span class="hljs-number">4</span>, HIGH); <span class="hljs-comment">// simulate no touch</span>
+    delay(<span class="hljs-number">1000</span>); 
+
+    digitalWrite(<span class="hljs-number">4</span>, LOW); <span class="hljs-comment">// simulate touch</span>
+    delay(<span class="hljs-number">1000</span>);
+}
+</code></pre>
+<h3 id="using-transistors">Using Transistors</h3>
+<p>This method can work faster than a relay too. You have to use a transistor in place of a relay for switching between open circuit and ground. The code would be the same as above.</p>
 
                     
                     </section>

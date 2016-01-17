@@ -53,7 +53,7 @@
         data-chapter-title="Using electronic circuits and IP"
         data-filepath="Methods/circuit.md"
         data-basepath=".."
-        data-revision="Sat Jan 16 2016 21:14:37 GMT+0530 (IST)"
+        data-revision="Sun Jan 17 2016 12:12:45 GMT+0530 (IST)"
         data-innerlanguage="">
     
 
@@ -685,20 +685,21 @@
                 
                     <section class="normal" id="section-">
                     
-                        <h1 id="53-using-electronics-circuits-and-image-processing">5.3. Using Electronics circuits and Image Processing</h1>
+                        <h1 id="using-electronics-circuits-and-image-processing">Using Electronics circuits and Image Processing</h1>
 <p>In this method we will be using the concepts of electronics and image processing together to automate the game.The Basic concepts of image processing which we are going to use is described in detail in the next chapter of this book.</p>
-<h5 id="approach">Approach</h5>
+<h3 id="approach">Approach</h3>
 <p><img src="../Images/methods-3.png" alt="image11"></p>
 <p><em>Fig.The image depicts the connection between the computer,microcontroller and the phone</em></p>
 <p>We use a webcam which takes the pictures of the mobile screen and sends it to MATLAB so that it can be used for the next processing step.The MATLAB algorithm processes the image according to our need and generates the duration of touch and sends it to the microcontroller(Arduino here),which in turn is used to simulate the touch on the phone screen using certain circuits.
-For Example, In the game named &#xFFFD;piano tiles&#xFFFD;,our webcam will capture the image of the screen and send it to the laptop where we can separate the white and black tiles and accordingly we can send the information to the Arduino to simulate a touch on the particular area of the screen where the black tiles are present.</p>
-<h5 id="when-should-we-prefer-to-use-this-method">When should we prefer to use this method?</h5>
+For Example, In the game named piano tiles,our webcam will capture the image of the screen and send it to the laptop where we can separate the white and black tiles and accordingly we can send the information to the Arduino to simulate a touch on the particular area of the screen where the black tiles are present.</p>
+<h3 id="when-should-we-prefer-to-use-this-method">When should we prefer to use this method?</h3>
+<h5 id="advantages">Advantages</h5>
 <ul>
-<li>This method is mostly used to solve more complex games for example- an  Android game &#xFFFD;FLAPPY BIRD&#xFFFD; .</li>
+<li>This method is mostly used to solve more complex games for example- an  Android game Flappy Bird.</li>
 <li>Faster than ADB tool .</li>
 <li>Debugging becomes easier.</li>
 </ul>
-<h5 id="what-are-the-difficulties-faced-in-this-method">What are the difficulties faced in this method?</h5>
+<h5 id="disadvantages">Disadvantages</h5>
 <ul>
 <li>In some Android games we notice that background changes after completion of a level, so image processing for such games becomes difficult.</li>
 <li>Complex circuits are required.</li>
