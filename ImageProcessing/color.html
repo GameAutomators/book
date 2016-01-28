@@ -53,7 +53,7 @@
         data-chapter-title="Basics of Color"
         data-filepath="ImageProcessing/color.md"
         data-basepath=".."
-        data-revision="Sun Jan 17 2016 12:12:45 GMT+0530 (IST)"
+        data-revision="Thu Jan 28 2016 13:10:14 GMT+0530 (IST)"
         data-innerlanguage="">
     
 
@@ -428,47 +428,77 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="5.1" data-path="Examples/circuits.html">
+        <li class="chapter " data-level="5.1" data-path="Examples/adb.html">
             
                 
-                    <a href="../Examples/circuits.html">
+                    <a href="../Examples/adb.html">
                 
                         <i class="fa fa-check"></i>
                         
                             <b>5.1.</b>
                         
-                        Using Electronic Circuits
+                        Using ADB and IP
                     </a>
             
             
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="5.1.1" data-path="Examples/ready_steady_bang.html">
+        <li class="chapter " data-level="5.1.1" data-path="Examples/3d_bowling.html">
             
                 
-                    <a href="../Examples/ready_steady_bang.html">
+                    <a href="../Examples/3d_bowling.html">
                 
                         <i class="fa fa-check"></i>
                         
                             <b>5.1.1.</b>
                         
-                        Ready Steady Bang
+                        3D Bowling
                     </a>
             
             
         </li>
     
-        <li class="chapter " data-level="5.1.2" data-path="Examples/piano_tiles.html">
+        <li class="chapter " data-level="5.1.2" data-path="Examples/playing_the_song.html">
             
                 
-                    <a href="../Examples/piano_tiles.html">
+                    <a href="../Examples/playing_the_song.html">
                 
                         <i class="fa fa-check"></i>
                         
                             <b>5.1.2.</b>
                         
-                        Piano Tiles
+                        Playing the song
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="5.1.3" data-path="Examples/tic_tac_toe.html">
+            
+                
+                    <a href="../Examples/tic_tac_toe.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.1.3.</b>
+                        
+                        Tic Tac Toe
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="5.1.4" data-path="Examples/find_the_difference.html">
+            
+                
+                    <a href="../Examples/find_the_difference.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.1.4.</b>
+                        
+                        Find The Difference
                     </a>
             
             
@@ -479,77 +509,47 @@
             
         </li>
     
-        <li class="chapter " data-level="5.2" data-path="Examples/adb.html">
+        <li class="chapter " data-level="5.2" data-path="Examples/circuits.html">
             
                 
-                    <a href="../Examples/adb.html">
+                    <a href="../Examples/circuits.html">
                 
                         <i class="fa fa-check"></i>
                         
                             <b>5.2.</b>
                         
-                        Using ADB and IP
+                        Using Electronic Circuits
                     </a>
             
             
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="5.2.1" data-path="Examples/3d_bowling.html">
+        <li class="chapter " data-level="5.2.1" data-path="Examples/ready_steady_bang.html">
             
                 
-                    <a href="../Examples/3d_bowling.html">
+                    <a href="../Examples/ready_steady_bang.html">
                 
                         <i class="fa fa-check"></i>
                         
                             <b>5.2.1.</b>
                         
-                        3D Bowling
+                        Ready Steady Bang
                     </a>
             
             
         </li>
     
-        <li class="chapter " data-level="5.2.2" data-path="Examples/playing_the_song.html">
+        <li class="chapter " data-level="5.2.2" data-path="Examples/piano_tiles.html">
             
                 
-                    <a href="../Examples/playing_the_song.html">
+                    <a href="../Examples/piano_tiles.html">
                 
                         <i class="fa fa-check"></i>
                         
                             <b>5.2.2.</b>
                         
-                        Playing the song
-                    </a>
-            
-            
-        </li>
-    
-        <li class="chapter " data-level="5.2.3" data-path="Examples/tic_tac_toe.html">
-            
-                
-                    <a href="../Examples/tic_tac_toe.html">
-                
-                        <i class="fa fa-check"></i>
-                        
-                            <b>5.2.3.</b>
-                        
-                        Tic Tac Toe
-                    </a>
-            
-            
-        </li>
-    
-        <li class="chapter " data-level="5.2.4" data-path="Examples/find_the_difference.html">
-            
-                
-                    <a href="../Examples/find_the_difference.html">
-                
-                        <i class="fa fa-check"></i>
-                        
-                            <b>5.2.4.</b>
-                        
-                        Find The Difference
+                        Piano Tiles
                     </a>
             
             
@@ -685,26 +685,36 @@
                 
                     <section class="normal" id="section-">
                     
-                        <h3 id="how-any-color-can-be-represented-as-a-combination-of-rgb">How any Color can be Represented as a Combination of RGB?</h3>
-<p>For image processing, we need to understand the formation of a digital image on its pixel level. A color image is a three-layered matrix. More precisely, it&apos;s just three functions to be pasted together. These three functions are Red, Green and Blue. In other words, we can say that each color can be represented by the combination of these three colors.</p>
-<p>  <em>f(x, y) = [r (x, y), g(x, y), b(x, y) ]</em></p>
-<p>The following image is a pop-up box in paint window. Here you can see in the right bottom corner, there is a color representation in terms of Red, Green and Blue. We call this as RGB value of the color.</p>
-<p><img src="" alt="ColorImage"></p>
-<p>In a similar fashion every pixel has its RGB value.</p>
-<h3 id="types-of-images">Types of Images</h3>
-<p>On the basis of image processing, Images can be classified into three categories :-</p>
+                        <h1 id="types-of-images">Types of Images</h1>
+<p>The images are classified into three main categories which are mentioned below.</p>
 <ul>
 <li>Binary Image</li>
 <li>Grayscale Image</li>
 <li>RGB Image</li>
 </ul>
-<h5 id="binary-image">Binary Image</h5>
-<p>The term &#x2018;bi&#x2019; represents two i.e. an image in which all pixels have either 0&#x2019;s or 1&#x2019;s is a binary image. Those pixels having pixel value as 0 are black in display while the white ones are represented as 1.</p>
-<h5 id="grayscale-image">Grayscale Image</h5>
-<p>Grayscale image also represents a 2-D matrix. The only difference between grayscale and binary image is that it&#x2019;s pixels can have value from 0 to 255. Here 0 will represent &#x2018;pure black&#x2019; and 255 will represent &#x2018;pure white&#x2019; color.<br>The pixels having pixel value in between 0 and 255 will look like &#x2018;gray&#x2019; in color i.e. a mixture of black and white.</p>
-<h5 id="rgb-image">RGB Image</h5>
-<p>RGB image is used to display a 3-D image. A colored image consists of three layers i.e. the Red, Blue and Green color component of every pixel.</p>
-<p><img src="" alt="TypesofImages"></p>
+<p>Let us discuss each one of them now.</p>
+<h3 id="binary-image">Binary Image</h3>
+<p>In a binary image, each of the pixels are either black or white. There is no other color, not even gray. Below is an example for a binary image.</p>
+<p><img src="../Images/binary_image.jpg" alt="ColorImage"></p>
+<p>Typically in a binary image, black is represented by the value 0 and white is represented by the value 1. This way, a binary image can be stored in a 2D matrix with just the numbers 0 and 1 in it. Below is an example of the same.</p>
+<p><img src="../Images/binary_image.gif" alt="ColorImage"></p>
+<h3 id="grayscale-image">Grayscale Image</h3>
+<p>In a grayscale image, apart from having white and black; you can also have various shades of gray. The value of each pixel varies from 0 to 255 where 0 represents pure black; 255 represents pur white; and all the values in between represent various shades of grey. The same is depicted in the image below for clear understanding.</p>
+<p><img src="../Images/grayscale_image.jpg" alt="ColorImage"></p>
+<p>The grayscale image is stored in a 2D matrix with the values of each element varying between 0 and 255. An example of a grayscale image is shown below.</p>
+<p><img src="../Images/gray_values.png" alt="ColorImage"></p>
+<p>Here&apos;s the image of Lena in grayscale.</p>
+<p><img src="../Images/lena_gray.bmp" alt="ColorImage"></p>
+<h3 id="rgb-image">RGB image</h3>
+<p>RGB stands for red, green and blue. Before getting into what an RGB image consists of, we have to understand how each and every color can be represented. </p>
+<h5 id="representation-of-colors">Representation of colors</h5>
+<p>Each of the pixels is represented by a single color and every color can be represented as a combination of three colors- red, green and blue. For example, white is the presence of all three colors: red, green and blue whereas black is the absense of these colors. </p>
+<p>Below is the image of the popular color pallete in Microsoft Paint. You can select any color in the box in the right half of image. It&apos;s corresponding red, green and blue values are represented at the left bottom of the screen. </p>
+<p>This is a 24-bit image, i.e., 8 bits in red, 8 bits in green and 8 bits in blue. Because it is 8 bits- the value of each color can vary between 0 and 255. 0 represents the absense of the color and 255 represents the presence. In this image, the color choosen has a value of red 255, green 128 and blue 64. It means the color has full red component, half green component and quarter blue component.</p>
+<p><img src="../Images/color_pal.png" alt="ColorImage"></p>
+<h5 id="rgb-image-matrix">RGB Image Matrix</h5>
+<p>By using the above concept, any image can be represented as a combination of three layers- read, green and blue. This is depicted in the image below.</p>
+<p><img src="../Images/rgb_example.png" alt="ColorImage"></p>
 
                     
                     </section>
@@ -742,13 +752,9 @@
     <script src="../gitbook/plugins/gitbook-plugin-fontsettings/buttons.js"></script>
     
 
-    
-    <script src="../gitbook/plugins/gitbook-plugin-livereload/plugin.js"></script>
-    
-
 <script>
 require(["gitbook"], function(gitbook) {
-    var config = {"highlight":{},"search":{"maxIndexSize":1000000},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"livereload":{}};
+    var config = {"highlight":{},"search":{"maxIndexSize":1000000},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2}};
     gitbook.start(config);
 });
 </script>
