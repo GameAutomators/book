@@ -5,7 +5,7 @@
         
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <title>Stick Hero | Building Mobile Game Solvers</title>
+        <title>Sensors | Building Mobile Game Solvers</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="generator" content="GitBook 2.6.6">
@@ -37,10 +37,10 @@
         
     
     
-    <link rel="next" href="../Acknowledgements/index.html" />
+    <link rel="next" href="../Electronics/4-simulation.html" />
     
     
-    <link rel="prev" href="../Examples/circuit_ip.html" />
+    <link rel="prev" href="../Electronics/2-arduino.html" />
     
 
         
@@ -49,9 +49,9 @@
         
         
     <div class="book"
-        data-level="5.3.1"
-        data-chapter-title="Stick Hero"
-        data-filepath="Examples/stick_hero.md"
+        data-level="4.3"
+        data-chapter-title="Sensors"
+        data-filepath="Electronics/3-sensors.md"
         data-basepath=".."
         data-revision="Wed Feb 17 2016 12:29:41 GMT+0530 (IST)"
         data-innerlanguage="">
@@ -356,7 +356,7 @@
             
         </li>
     
-        <li class="chapter " data-level="4.3" data-path="Electronics/3-sensors.html">
+        <li class="chapter active" data-level="4.3" data-path="Electronics/3-sensors.html">
             
                 
                     <a href="../Electronics/3-sensors.html">
@@ -570,7 +570,7 @@
             <ul class="articles">
                 
     
-        <li class="chapter active" data-level="5.3.1" data-path="Examples/stick_hero.html">
+        <li class="chapter " data-level="5.3.1" data-path="Examples/stick_hero.html">
             
                 
                     <a href="../Examples/stick_hero.html">
@@ -679,40 +679,81 @@
                 
                     <section class="normal" id="section-">
                     
-                        <h1 id="stick-hero">Stick Hero</h1>
-<p>In this game,the player need to hold on the screen such that the stick that the man is holding increase its lenght such that the stick can be used to across the gap between two black pillars.</p>
-<h5 id="playstore-link-stick-hero">Playstore Link: <a href="https://play.google.com/store/apps/details?id=com.ketchapp.stickhero&amp;hl=en" target="_blank">Stick Hero</a></h5>
-<p> [Image] </p>
-<h4 id="difficulty-level">Difficulty Level:</h4>
-<p>Moderate</p>
-<h4 id="overview">Overview</h4>
-<ul>
-<li>Detect the black pillars</li>
-<li>Determine the amount of time the screen is to be touched</li>
-<li>Simulate touch on the tablet/phone</li>
-</ul>
-<h4 id="requirements">Requirements</h4>
-<ul>
-<li>An Android Device with the &#x2018;Stick Hero&#x2019; game installed in it.</li>
-<li>Single Strand Wires, Coins, Relays are used to simulate the touch on the capacitive touch screen of phones and tablets.</li>
-<li>Arduino is used to control the duration of the touch.</li>
-<li>Matlab: Used for Image Processing</li>
-<li>Arduino IDE: For programming the Arduino.</li>
-<li>IP Cam: It is an android app which enables us to use our smartphones cam as a web cam</li>
-</ul>
-<h4 id="circuit-diagram">Circuit Diagram:</h4>
-<h4 id="tutorial">Tutorial</h4>
-<h5 id="step-1-detecting-the-black-pillars">Step 1: Detecting the black pillars:</h5>
-<p>This is done by using Matlab. The image that is captured from the IP Cam is  processed and the locations of the black pillars are determined. The distance between the black pillars is calculated and the corresponding data is sent to the Arduino through serial communication.</p>
-<p>The source code for the above processing can be found <a href="https://github.com/psurya1994/arduino-plays-stick-hero/tree/master/Code/MATLAB" target="_blank">here</a></p>
-<h5 id="step-2-determining-the-duration-of-the-touch">Step 2: Determining the duration of the touch:</h5>
-<p>Based on the data arrived from Matlab, the duration of the touch is adjusted such that the stick exactly falls on the adjacent pillar.</p>
-<p>The source code for the arduino can be found <a href="https://github.com/psurya1994/arduino-plays-stick-hero/tree/master/Code/Arduino" target="_blank">here</a>.</p>
-<h5 id="step-3-simulating-touch">Step 3: Simulating Touch:</h5>
-<p>For this we have to understand how capacitive touch screens work. The electrodes apply a low voltage to the conductive layer creating a uniform electrostatic field. When a finger hits the screen a tiny electrical charge is transferred to the finger to complete the circuit creating a voltage drop at that point on the screen. The location of this voltage drop is recorded by the controller and this is how a capacitive touch screen works.</p>
-<p>We are going to use this concept, except that in the place of a finger, we use the ground pin on the arduino to transfer the charge on the screen. To have more surface area on the display of the screen, we use a coin.</p>
-<p>Relays are directly connected to the output pin of the Arduino. It is equivalent to a touch if the voltage given is high as there is a path for the current to flow to the ground. It is equivalent to not touching if the voltage given is low.</p>
-<p>Run the <a href="https://github.com/psurya1994/arduino-plays-piano-tiles/blob/master/Code/test_touch/test_touch.ino" target="_blank">test_relay code</a> at this link to see if the electronic touch is simulated properly.</p>
+                        <h2 id="sensors-for-automating-games">Sensors for automating games</h2>
+<p>This section lists the various electronic sensors that can be used detect the differences on the phone screen. The common and main idea for all of these sensors is that it senses the light that is following and somehow convert it into an understandable format. For examples, LDR converts the change in light intensity that is falling on top of it. </p>
+<h3 id="light-dependent-resistorldr">Light Dependent Resistor(LDR)</h3>
+<p><img src="../Images/HDR_Enhancer_1.jpg" alt="LDR basic"></p>
+<p>An LDR is commonly used for wide range of applications because of it provides decently accurate information of the external lighting and at the same time economical. It is basically a light controlled resistor- which means that the resistance across it&apos;s terminals changes according to the light incident on it. This can be used in projects where you want to sense the lighting in the surrondings. One of it&apos;s common applications is to be used to turn on lights automatically in the evening. A video tutorial on how you can build such a circuit is below.</p>
+<p>Link: <a href="https://youtu.be/_uglvulpofQ" target="_blank">https://youtu.be/_uglvulpofQ</a> </p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/_uglvulpofQ?list=PLmcMMZCV897om7Wuqz882Jdp9lGj9HYHs" frameborder="0" allowfullscreen></iframe>
+
+
+<h4 id="how-it-works">How it works</h4>
+<p>It works on the principle of photo conductivity. When light is incident on top of a LDR, the elctronics and holes are seperated- hence the conductivity increases i.e., resistivity decreases. When the light is not incident, they are very few freely moving holes and electrons- so the conductivity is less i.e., the resistivity is high.</p>
+<h4 id="circuit-for-ldr">Circuit for LDR</h4>
+<p>Assume that LDR is connected at Z1 and Z2 is a resistor. As discussed in the previous chapter, the LDR can be used in a voltage divider circuit to convert this change in resistance because of the external light to change in voltage. We are doing this because the microcontroller can only detect the change in voltage.</p>
+<p><img src="../Images/Voltage_divider.png" alt="LDR circuit"></p>
+<p>This is how the LDR must be connected to the Arduino. This circuit diagram has been created using fritzing.</p>
+<p><img src="../Images/ldr_arduino.png" alt="LDR arduino"></p>
+<h4 id="source-code-for-using-ldr-with-arduino">Source code for using LDR with Arduino</h4>
+<p>This is the code that you can use in Arduino to read the values from the LDR with the appropriate circuit. We will display the values returned by the LDR on the serial monitor so that we can observe the changes in the value returned in real time.</p>
+<p>Let&apos;s setup serial communication first.</p>
+<pre><code class="lang-C"><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">setup</span><span class="hljs-params">()</span>
+</span>{
+    <span class="hljs-comment">// initialize serial communications at 9600 bps:</span>
+    Serial.begin(<span class="hljs-number">9600</span>);
+}
+</code></pre>
+<p>Let&apos;s connect the LDR input to A0 pin on Arduino.</p>
+<pre><code class="lang-C"><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">loop</span><span class="hljs-params">()</span>
+</span>{
+    <span class="hljs-comment">// reading the value from sensor and storing it in a variable</span>
+    sensorValue = analogRead(A0);
+
+    <span class="hljs-comment">// print the output on serial monitor</span>
+    Serial.print(<span class="hljs-string">&quot;Sensor Value = &quot;</span>);
+    Serial.println(sensorValue);
+
+    <span class="hljs-comment">// use a delay to see values clearly</span>
+    delay(<span class="hljs-number">20</span>);
+}
+</code></pre>
+<h4 id="sensor-placement-on-screen">Sensor placement on screen</h4>
+<p>Here&apos;s how the LDR can be placed on the top of the screen.</p>
+<p><img src="../Images/ldr_arduino_block.png" alt="LDR arduino block"></p>
+<p>The output voltage from the LDR circuit changes depending on the screen color (either white or black). We have to choose a value in between both of them with we call the threshold to differentiate the colors. This threshold value can be found by watching the values of white and black on the serial monitor.</p>
+<p>Once the sensor threshold value is found, we can use the following code to perform tasks accordingly.</p>
+<pre><code class="lang-C"><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">setup</span><span class="hljs-params">()</span>
+</span>{
+    thresholdValue = <span class="hljs-number">500</span>; <span class="hljs-comment">// obtained from observation of serial monitor</span>
+}
+
+<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">loop</span><span class="hljs-params">()</span>
+</span>{
+    <span class="hljs-comment">// reading the value from sensor and storing it in a variable</span>
+    sensorValue = analogRead(A0);
+
+    <span class="hljs-keyword">if</span>(sensorValue &gt; thresholdValue)
+    {
+        <span class="hljs-comment">// perform task when screen white</span>
+    }
+    <span class="hljs-keyword">else</span>
+    {
+        <span class="hljs-comment">// perform task when screen dark</span>
+    }
+
+    delay(<span class="hljs-number">20</span>);
+}
+</code></pre>
+<h4 id="sensor-protection-from-ambient-light">Sensor protection from ambient light</h4>
+<p>This threshold value could change depending on the ambient light in the room. So, we use a shield for the LDR to keep it. Shielding is optional but we suggest you to do that. This will make the values that LDR returns consistent irrespective of the external light. We make sure that the color of the shield is dark so that it would block more light.</p>
+<p><img src="../Images/ldr_shield.jpg" alt="LDR shield"></p>
+<h4 id="examples-of-application">Examples of application</h4>
+<p>An LDR can be used to detect the different of bright and dark regions on the screen. If you have a dark region, the LDR has high resistance and vice-versa. This is appropriately reflected in the values sensed by the microcontroller so that appropriate action can be taken.</p>
+<p>This is used in the games Piano Tiles and Ready Steady Bang because the primary concept in this games is the identify the difference in intensities of light on screen.</p>
+<h3 id="rgb-sensors">RGB Sensors</h3>
+<p>Instead of an LDR, we can also use an RGB sensor to differentiate colors on the screen. The additional advantage of the RGB sensor from the LDR is that, it can know the exact color on the screen unlike LDR with can you find the brightness of the color coming from the screen.</p>
+<p>An RGB sensor can clearly differentiate between blue and green, whereas the same would be hard for an LDR to do.</p>
 
                     
                     </section>
@@ -723,10 +764,10 @@
         </div>
 
         
-        <a href="../Examples/circuit_ip.html" class="navigation navigation-prev " aria-label="Previous page: Using Image Processing and Electronics"><i class="fa fa-angle-left"></i></a>
+        <a href="../Electronics/2-arduino.html" class="navigation navigation-prev " aria-label="Previous page: Arduino"><i class="fa fa-angle-left"></i></a>
         
         
-        <a href="../Acknowledgements/index.html" class="navigation navigation-next " aria-label="Next page: Acknowledgements"><i class="fa fa-angle-right"></i></a>
+        <a href="../Electronics/4-simulation.html" class="navigation navigation-next " aria-label="Next page: Simulation"><i class="fa fa-angle-right"></i></a>
         
     </div>
 </div>

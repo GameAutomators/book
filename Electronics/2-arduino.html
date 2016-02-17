@@ -5,7 +5,7 @@
         
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <title>Stick Hero | Building Mobile Game Solvers</title>
+        <title>Arduino | Building Mobile Game Solvers</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="generator" content="GitBook 2.6.6">
@@ -37,10 +37,10 @@
         
     
     
-    <link rel="next" href="../Acknowledgements/index.html" />
+    <link rel="next" href="../Electronics/3-sensors.html" />
     
     
-    <link rel="prev" href="../Examples/circuit_ip.html" />
+    <link rel="prev" href="../Electronics/1-basics.html" />
     
 
         
@@ -49,9 +49,9 @@
         
         
     <div class="book"
-        data-level="5.3.1"
-        data-chapter-title="Stick Hero"
-        data-filepath="Examples/stick_hero.md"
+        data-level="4.2"
+        data-chapter-title="Arduino"
+        data-filepath="Electronics/2-arduino.md"
         data-basepath=".."
         data-revision="Wed Feb 17 2016 12:29:41 GMT+0530 (IST)"
         data-innerlanguage="">
@@ -341,7 +341,7 @@
             
         </li>
     
-        <li class="chapter " data-level="4.2" data-path="Electronics/2-arduino.html">
+        <li class="chapter active" data-level="4.2" data-path="Electronics/2-arduino.html">
             
                 
                     <a href="../Electronics/2-arduino.html">
@@ -570,7 +570,7 @@
             <ul class="articles">
                 
     
-        <li class="chapter active" data-level="5.3.1" data-path="Examples/stick_hero.html">
+        <li class="chapter " data-level="5.3.1" data-path="Examples/stick_hero.html">
             
                 
                     <a href="../Examples/stick_hero.html">
@@ -679,40 +679,33 @@
                 
                     <section class="normal" id="section-">
                     
-                        <h1 id="stick-hero">Stick Hero</h1>
-<p>In this game,the player need to hold on the screen such that the stick that the man is holding increase its lenght such that the stick can be used to across the gap between two black pillars.</p>
-<h5 id="playstore-link-stick-hero">Playstore Link: <a href="https://play.google.com/store/apps/details?id=com.ketchapp.stickhero&amp;hl=en" target="_blank">Stick Hero</a></h5>
-<p> [Image] </p>
-<h4 id="difficulty-level">Difficulty Level:</h4>
-<p>Moderate</p>
-<h4 id="overview">Overview</h4>
-<ul>
-<li>Detect the black pillars</li>
-<li>Determine the amount of time the screen is to be touched</li>
-<li>Simulate touch on the tablet/phone</li>
-</ul>
-<h4 id="requirements">Requirements</h4>
-<ul>
-<li>An Android Device with the &#x2018;Stick Hero&#x2019; game installed in it.</li>
-<li>Single Strand Wires, Coins, Relays are used to simulate the touch on the capacitive touch screen of phones and tablets.</li>
-<li>Arduino is used to control the duration of the touch.</li>
-<li>Matlab: Used for Image Processing</li>
-<li>Arduino IDE: For programming the Arduino.</li>
-<li>IP Cam: It is an android app which enables us to use our smartphones cam as a web cam</li>
-</ul>
-<h4 id="circuit-diagram">Circuit Diagram:</h4>
-<h4 id="tutorial">Tutorial</h4>
-<h5 id="step-1-detecting-the-black-pillars">Step 1: Detecting the black pillars:</h5>
-<p>This is done by using Matlab. The image that is captured from the IP Cam is  processed and the locations of the black pillars are determined. The distance between the black pillars is calculated and the corresponding data is sent to the Arduino through serial communication.</p>
-<p>The source code for the above processing can be found <a href="https://github.com/psurya1994/arduino-plays-stick-hero/tree/master/Code/MATLAB" target="_blank">here</a></p>
-<h5 id="step-2-determining-the-duration-of-the-touch">Step 2: Determining the duration of the touch:</h5>
-<p>Based on the data arrived from Matlab, the duration of the touch is adjusted such that the stick exactly falls on the adjacent pillar.</p>
-<p>The source code for the arduino can be found <a href="https://github.com/psurya1994/arduino-plays-stick-hero/tree/master/Code/Arduino" target="_blank">here</a>.</p>
-<h5 id="step-3-simulating-touch">Step 3: Simulating Touch:</h5>
-<p>For this we have to understand how capacitive touch screens work. The electrodes apply a low voltage to the conductive layer creating a uniform electrostatic field. When a finger hits the screen a tiny electrical charge is transferred to the finger to complete the circuit creating a voltage drop at that point on the screen. The location of this voltage drop is recorded by the controller and this is how a capacitive touch screen works.</p>
-<p>We are going to use this concept, except that in the place of a finger, we use the ground pin on the arduino to transfer the charge on the screen. To have more surface area on the display of the screen, we use a coin.</p>
-<p>Relays are directly connected to the output pin of the Arduino. It is equivalent to a touch if the voltage given is high as there is a path for the current to flow to the ground. It is equivalent to not touching if the voltage given is low.</p>
-<p>Run the <a href="https://github.com/psurya1994/arduino-plays-piano-tiles/blob/master/Code/test_touch/test_touch.ino" target="_blank">test_relay code</a> at this link to see if the electronic touch is simulated properly.</p>
+                        <h2 id="introduction-to-arduino">Introduction to Arduino</h2>
+<p>Arduino is an open-source, easy to use platform used for building electronics circuits.</p>
+<p>Arduino consists of both a physical programmable circuit board (often referred to as a microcontroller) and a piece of software, or IDE (Integrated Development Environment) that runs on your computer, used to write and upload computer code to the physical board.</p>
+<p>All the Arduino is doing is- it reads the inputs from the sensors, and takes action depending on the logic that has been programmed into it.</p>
+<p>Jeremy Blum&apos;s Arduino tutorials on the YouTube are one of the best out there, watch the first three videos to get the basic understanding of Arduino.</p>
+<p>Link: <a href="https://www.youtube.com/playlist?list=PLV009FNOX7Tf-XSyghg2vrSYXw1QcCHaX" target="_blank">https://www.youtube.com/playlist?list=PLV009FNOX7Tf-XSyghg2vrSYXw1QcCHaX</a></p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/videoseries?list=PLV009FNOX7Tf-XSyghg2vrSYXw1QcCHaX" frameborder="0" allowfullscreen></iframe>
+
+<h5 id="software">Software</h5>
+<p>Arduino also has an open-source software component which is similar to C++. The Arduino integrated development environment (IDE) allows you to write code, compile it, and then upload it to your Arduino for stand alone use in prototyping and projects.
+ A typical Arduino C/C++ sketch consist of two functions that are compiled and linked with a program stub main() into an executable cyclic executive program:</p>
+<p><strong><em>setup()</em></strong>: a function that runs once at the start of a program and that can initialize settings.</p>
+<p><strong><em>loop()</em></strong>: a function called repeatedly until the board powers off.</p>
+<p>Sample program: (for blinking an LED)</p>
+<pre><code class="lang-C"><span class="hljs-preprocessor">#<span class="hljs-keyword">define</span> LED_PIN <span class="hljs-number">13</span></span>
+
+<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">setup</span><span class="hljs-params">()</span> </span>{
+    pinMode(LED_PIN, OUTPUT);       <span class="hljs-comment">// Enable pin 13 for digital output</span>
+}
+
+<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">loop</span><span class="hljs-params">()</span> </span>{
+    digitalWrite(LED_PIN, HIGH);    <span class="hljs-comment">// Turn on the LED</span>
+    delay(<span class="hljs-number">1000</span>);                    <span class="hljs-comment">// Wait one second (1000 milliseconds)</span>
+    digitalWrite(LED_PIN, LOW);     <span class="hljs-comment">// Turn off the LED</span>
+    delay(<span class="hljs-number">1000</span>);                    <span class="hljs-comment">// Wait one second</span>
+}
+</code></pre>
 
                     
                     </section>
@@ -723,10 +716,10 @@
         </div>
 
         
-        <a href="../Examples/circuit_ip.html" class="navigation navigation-prev " aria-label="Previous page: Using Image Processing and Electronics"><i class="fa fa-angle-left"></i></a>
+        <a href="../Electronics/1-basics.html" class="navigation navigation-prev " aria-label="Previous page: Basic Electronics"><i class="fa fa-angle-left"></i></a>
         
         
-        <a href="../Acknowledgements/index.html" class="navigation navigation-next " aria-label="Next page: Acknowledgements"><i class="fa fa-angle-right"></i></a>
+        <a href="../Electronics/3-sensors.html" class="navigation navigation-next " aria-label="Next page: Sensors"><i class="fa fa-angle-right"></i></a>
         
     </div>
 </div>

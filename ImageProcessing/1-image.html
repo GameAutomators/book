@@ -5,7 +5,7 @@
         
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <title>Stick Hero | Building Mobile Game Solvers</title>
+        <title>What is an Image | Building Mobile Game Solvers</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="generator" content="GitBook 2.6.6">
@@ -37,10 +37,10 @@
         
     
     
-    <link rel="next" href="../Acknowledgements/index.html" />
+    <link rel="next" href="../ImageProcessing/2-color.html" />
     
     
-    <link rel="prev" href="../Examples/circuit_ip.html" />
+    <link rel="prev" href="../ImageProcessing/index.html" />
     
 
         
@@ -49,9 +49,9 @@
         
         
     <div class="book"
-        data-level="5.3.1"
-        data-chapter-title="Stick Hero"
-        data-filepath="Examples/stick_hero.md"
+        data-level="3.1"
+        data-chapter-title="What is an Image"
+        data-filepath="ImageProcessing/1-image.md"
         data-basepath=".."
         data-revision="Wed Feb 17 2016 12:29:41 GMT+0530 (IST)"
         data-innerlanguage="">
@@ -194,7 +194,7 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="3.1" data-path="ImageProcessing/1-image.html">
+        <li class="chapter active" data-level="3.1" data-path="ImageProcessing/1-image.html">
             
                 
                     <a href="../ImageProcessing/1-image.html">
@@ -570,7 +570,7 @@
             <ul class="articles">
                 
     
-        <li class="chapter active" data-level="5.3.1" data-path="Examples/stick_hero.html">
+        <li class="chapter " data-level="5.3.1" data-path="Examples/stick_hero.html">
             
                 
                     <a href="../Examples/stick_hero.html">
@@ -679,40 +679,18 @@
                 
                     <section class="normal" id="section-">
                     
-                        <h1 id="stick-hero">Stick Hero</h1>
-<p>In this game,the player need to hold on the screen such that the stick that the man is holding increase its lenght such that the stick can be used to across the gap between two black pillars.</p>
-<h5 id="playstore-link-stick-hero">Playstore Link: <a href="https://play.google.com/store/apps/details?id=com.ketchapp.stickhero&amp;hl=en" target="_blank">Stick Hero</a></h5>
-<p> [Image] </p>
-<h4 id="difficulty-level">Difficulty Level:</h4>
-<p>Moderate</p>
-<h4 id="overview">Overview</h4>
-<ul>
-<li>Detect the black pillars</li>
-<li>Determine the amount of time the screen is to be touched</li>
-<li>Simulate touch on the tablet/phone</li>
-</ul>
-<h4 id="requirements">Requirements</h4>
-<ul>
-<li>An Android Device with the &#x2018;Stick Hero&#x2019; game installed in it.</li>
-<li>Single Strand Wires, Coins, Relays are used to simulate the touch on the capacitive touch screen of phones and tablets.</li>
-<li>Arduino is used to control the duration of the touch.</li>
-<li>Matlab: Used for Image Processing</li>
-<li>Arduino IDE: For programming the Arduino.</li>
-<li>IP Cam: It is an android app which enables us to use our smartphones cam as a web cam</li>
-</ul>
-<h4 id="circuit-diagram">Circuit Diagram:</h4>
-<h4 id="tutorial">Tutorial</h4>
-<h5 id="step-1-detecting-the-black-pillars">Step 1: Detecting the black pillars:</h5>
-<p>This is done by using Matlab. The image that is captured from the IP Cam is  processed and the locations of the black pillars are determined. The distance between the black pillars is calculated and the corresponding data is sent to the Arduino through serial communication.</p>
-<p>The source code for the above processing can be found <a href="https://github.com/psurya1994/arduino-plays-stick-hero/tree/master/Code/MATLAB" target="_blank">here</a></p>
-<h5 id="step-2-determining-the-duration-of-the-touch">Step 2: Determining the duration of the touch:</h5>
-<p>Based on the data arrived from Matlab, the duration of the touch is adjusted such that the stick exactly falls on the adjacent pillar.</p>
-<p>The source code for the arduino can be found <a href="https://github.com/psurya1994/arduino-plays-stick-hero/tree/master/Code/Arduino" target="_blank">here</a>.</p>
-<h5 id="step-3-simulating-touch">Step 3: Simulating Touch:</h5>
-<p>For this we have to understand how capacitive touch screens work. The electrodes apply a low voltage to the conductive layer creating a uniform electrostatic field. When a finger hits the screen a tiny electrical charge is transferred to the finger to complete the circuit creating a voltage drop at that point on the screen. The location of this voltage drop is recorded by the controller and this is how a capacitive touch screen works.</p>
-<p>We are going to use this concept, except that in the place of a finger, we use the ground pin on the arduino to transfer the charge on the screen. To have more surface area on the display of the screen, we use a coin.</p>
-<p>Relays are directly connected to the output pin of the Arduino. It is equivalent to a touch if the voltage given is high as there is a path for the current to flow to the ground. It is equivalent to not touching if the voltage given is low.</p>
-<p>Run the <a href="https://github.com/psurya1994/arduino-plays-piano-tiles/blob/master/Code/test_touch/test_touch.ino" target="_blank">test_relay code</a> at this link to see if the electronic touch is simulated properly.</p>
+                        <h2 id="what-is-an-image">What is an Image?</h2>
+<p>In this section, we learn what is an image and what does it consist of.</p>
+<h3 id="basics">Basics</h3>
+<p>Below is the image of lena is what we come across very often in image processing. New algorithms are experimented on this image as it consists of a diverse chunks like- curly hair, plain background, human face, etc.,</p>
+<p><img src="../Images/WhatIsAnImage.png" alt="ImageExample"></p>
+<p><em>Fig. (a) The image of lena, (b) Image of lena zoomed in</em></p>
+<p>When you zoom very closely into the image, you will start to realize that the image is made up of discrete squares as shown in Fig. (b). Each of the discrete square have their own color. These discrete sqares are called picture elements, or in short <strong>pixels</strong>. </p>
+<p>Every image is created similarly by a two dimensional array of discrete square which have specific colors.  These small discrete squares (or blocks) come together to form a bigger image. The image in Fig. (a) has a high resolution (512x512) and hence you are unable to see the discrete square with your eye directly. There are so many small blocks such that our eye renders the image to be continous.</p>
+<h3 id="image-resolution">Image Resolution</h3>
+<p>The resolution of the image is the number of blocks in each of the directions in an image. It is represented by <em>m x n</em> when <em>m</em> is the number of pixels in x direction and <em>n</em> is the number of pixels in y direction. </p>
+<p>For example, when I say the resolution of the image in Fig. (a) is 512x512, I mean that the number of blocks in x direction for the image is 512 and the number of blocks in y direction for the image is 512. That is a total of 262,144 pixels.</p>
+<p>Let me give you another example, maybe a more intuitive one. When your phone manufacturer says that the resolution of the camera is 5 mega pixels (5 MP), what he means to say is that there will be a total of 5,000,000 pixels on the image that you take. So, the resolutions in x and y directions could be 2500 and 2000. So, the resolution of that image is 2500 x 2000.</p>
 
                     
                     </section>
@@ -723,10 +701,10 @@
         </div>
 
         
-        <a href="../Examples/circuit_ip.html" class="navigation navigation-prev " aria-label="Previous page: Using Image Processing and Electronics"><i class="fa fa-angle-left"></i></a>
+        <a href="../ImageProcessing/index.html" class="navigation navigation-prev " aria-label="Previous page: Image Processing"><i class="fa fa-angle-left"></i></a>
         
         
-        <a href="../Acknowledgements/index.html" class="navigation navigation-next " aria-label="Next page: Acknowledgements"><i class="fa fa-angle-right"></i></a>
+        <a href="../ImageProcessing/2-color.html" class="navigation navigation-next " aria-label="Next page: Basics of Color"><i class="fa fa-angle-right"></i></a>
         
     </div>
 </div>
