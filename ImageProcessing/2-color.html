@@ -53,7 +53,7 @@
         data-chapter-title="Basics of Color"
         data-filepath="ImageProcessing/2-color.md"
         data-basepath=".."
-        data-revision="Thu Feb 18 2016 17:34:40 GMT+0530 (IST)"
+        data-revision="Fri Feb 26 2016 10:19:40 GMT+0530 (IST)"
         data-innerlanguage="">
     
 
@@ -422,10 +422,10 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="5.1" data-path="Examples/adb.html">
+        <li class="chapter " data-level="5.1" data-path="Examples/1-image.html">
             
                 
-                    <a href="../Examples/adb.html">
+                    <a href="../Examples/1-image.html">
                 
                         <i class="fa fa-check"></i>
                         
@@ -518,10 +518,10 @@
             
         </li>
     
-        <li class="chapter " data-level="5.2" data-path="Examples/circuits.html">
+        <li class="chapter " data-level="5.2" data-path="Examples/2-electronics.html">
             
                 
-                    <a href="../Examples/circuits.html">
+                    <a href="../Examples/2-electronics.html">
                 
                         <i class="fa fa-check"></i>
                         
@@ -569,10 +569,10 @@
             
         </li>
     
-        <li class="chapter " data-level="5.3" data-path="Examples/circuit_ip.html">
+        <li class="chapter " data-level="5.3" data-path="Examples/3-both.html">
             
                 
-                    <a href="../Examples/circuit_ip.html">
+                    <a href="../Examples/3-both.html">
                 
                         <i class="fa fa-check"></i>
                         
@@ -718,12 +718,12 @@
 </ul>
 <p>Let us discuss each one of them now.</p>
 <h3 id="binary-image">Binary Image</h3>
-<p>In a binary image, each of the pixels are either black or white. There is no other color, not even gray. Below is an example for a binary image.</p>
+<p>In a binary image, each of the pixels are either black or white. There is no other color. Below is an example for a binary image.</p>
 <p><img src="../Images/binary_image.jpg" alt="ColorImage"></p>
 <p>Typically in a binary image, black is represented by the value 0 and white is represented by the value 1. This way, a binary image can be stored in a 2D matrix with just the numbers 0 and 1 in it. Below is an example of the same.</p>
 <p><img src="../Images/binary_image.gif" alt="ColorImage"></p>
 <h3 id="grayscale-image">Grayscale Image</h3>
-<p>In a grayscale image, apart from having white and black; you can also have various shades of gray. The value of each pixel varies from 0 to 255 where 0 represents pure black; 255 represents pur white; and all the values in between represent various shades of grey. The same is depicted in the image below for clear understanding.</p>
+<p>In a grayscale image, apart from having white and black; you can also have various shades of gray. For an 8-bit grayscale image, the value of each pixel varies from 0 to 255 where 0 represents pure black; 255 represents white; and all the values in between represent various shades of grey. The same is depicted in the image below for clear understanding.</p>
 <p><img src="../Images/grayscale_image.jpg" alt="ColorImage"></p>
 <p>The grayscale image is stored in a 2D matrix with the values of each element varying between 0 and 255. An example of a grayscale image is shown below.</p>
 <p><img src="../Images/gray_values.png" alt="ColorImage"></p>
@@ -761,6 +761,10 @@
 <script src="../gitbook/app.js"></script>
 
     
+    <script src="../gitbook/plugins/gitbook-plugin-ga/plugin.js"></script>
+    
+
+    
     <script src="../gitbook/plugins/gitbook-plugin-search/lunr.min.js"></script>
     
 
@@ -778,7 +782,7 @@
 
 <script>
 require(["gitbook"], function(gitbook) {
-    var config = {"highlight":{},"search":{"maxIndexSize":1000000},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2}};
+    var config = {"ga":{"token":"UA-74194055-1","configuration":"auto"},"highlight":{},"search":{"maxIndexSize":1000000},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2}};
     gitbook.start(config);
 });
 </script>

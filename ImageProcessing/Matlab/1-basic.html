@@ -53,7 +53,7 @@
         data-chapter-title="Basic Commands"
         data-filepath="ImageProcessing/Matlab/1-basic.md"
         data-basepath="../.."
-        data-revision="Thu Feb 18 2016 17:34:40 GMT+0530 (IST)"
+        data-revision="Fri Feb 26 2016 10:19:40 GMT+0530 (IST)"
         data-innerlanguage="">
     
 
@@ -422,10 +422,10 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="5.1" data-path="Examples/adb.html">
+        <li class="chapter " data-level="5.1" data-path="Examples/1-image.html">
             
                 
-                    <a href="../../Examples/adb.html">
+                    <a href="../../Examples/1-image.html">
                 
                         <i class="fa fa-check"></i>
                         
@@ -518,10 +518,10 @@
             
         </li>
     
-        <li class="chapter " data-level="5.2" data-path="Examples/circuits.html">
+        <li class="chapter " data-level="5.2" data-path="Examples/2-electronics.html">
             
                 
-                    <a href="../../Examples/circuits.html">
+                    <a href="../../Examples/2-electronics.html">
                 
                         <i class="fa fa-check"></i>
                         
@@ -569,10 +569,10 @@
             
         </li>
     
-        <li class="chapter " data-level="5.3" data-path="Examples/circuit_ip.html">
+        <li class="chapter " data-level="5.3" data-path="Examples/3-both.html">
             
                 
-                    <a href="../../Examples/circuit_ip.html">
+                    <a href="../../Examples/3-both.html">
                 
                         <i class="fa fa-check"></i>
                         
@@ -716,53 +716,51 @@
 </code></pre>
 <h4 id="imread">imread</h4>
 <p>This command reads the image from a graphics file and stores it in a variable in the matrix form. The syntax for the imread operation is shown below.</p>
-<p><code>varible_name = imread (&apos;file_location&apos;)</code></p>
-<pre><code class="lang-MATLAB">a = imread (<span class="hljs-string">&apos;object.png&apos;</span>)
+<p><code>varible_name = imread(&apos;file_location&apos;)</code></p>
+<pre><code class="lang-MATLAB">a = imread(<span class="hljs-string">&apos;object.png&apos;</span>)
 </code></pre>
 <p>The above command will store an image named &apos;object.png&apos; into matrix form in the variable &apos;a&apos;. The size of matrix &apos;a&apos; is decided by the dimensions of the image. Let us assume the size of &apos;object.png&apos; be 757 x 1080, then the matrix &apos;a&apos; will have 757 rows and 1080 columns. If the object is an RGB image, the size of <code>a</code> will be 757x1080x3 where 3 represents the layers of red, green and blue. </p>
 <p>Make sure that the image &apos;object.png&apos; is in your working directory for the code to work.</p>
 <h4 id="imshow">imshow</h4>
 <p>This command is used to show the image that has been stored in the matrix form. The syntax for the imshow operation is below.</p>
-<p><code>imshow (varible_name)</code></p>
-<pre><code class="lang-MATLAB">imshow (a)
+<p><code>imshow(varible_name)</code></p>
+<pre><code class="lang-MATLAB">imshow(a)
 </code></pre>
 <p>It will display the image stored in variable &apos;a&apos; in a new window.</p>
 <h4 id="imcrop">imcrop</h4>
 <p>This command crops the image according to the specified coordinates. The following syntax can be used to crop an image from the index values <code>(x1, y1)</code> with the length <code>l</code> and width <code>w</code>.</p>
-<p><code>varible_name = imcrop (image, [x1 y1 l w])</code></p>
-<pre><code class="lang-MATLAB">b = imcrop (a, <span class="hljs-matrix">[<span class="hljs-number">100</span> <span class="hljs-number">100</span> <span class="hljs-number">400</span> <span class="hljs-number">400</span>]</span>)
+<p><code>varible_name = imcrop(image, [x1 y1 l w])</code></p>
+<pre><code class="lang-MATLAB">b = imcrop(a, <span class="hljs-matrix">[<span class="hljs-number">100</span> <span class="hljs-number">100</span> <span class="hljs-number">400</span> <span class="hljs-number">400</span>]</span>)
 </code></pre>
 <p>It will crop the image &apos;a&apos; into a 400 x 400 image and store it in another variable &apos;b&apos;. You can use imshow to verify that the operation was performed correctly.</p>
 <h4 id="imresize">imresize</h4>
 <p>This command resizes an image according to the specified scale, or to a specified size. Here&apos;s the syntax for using imresize.</p>
-<p><code>variable_name = imresize (image, scale)</code></p>
-<p><code>variable_name = imresize (image, output_size)</code></p>
+<p><code>variable_name = imresize(image, scale)</code></p>
+<p><code>variable_name = imresize(image, output_size)</code></p>
 <pre><code class="lang-MATLAB"><span class="hljs-comment">% To resize the image into half</span>
-c = imresize (a, <span class="hljs-number">0.5</span>)
+c = imresize(a, <span class="hljs-number">0.5</span>)
 
 <span class="hljs-comment">% To resize the image into specified size</span>
-c = imresize (a, <span class="hljs-matrix">[<span class="hljs-number">200</span> <span class="hljs-number">300</span>]</span>)
+c = imresize(a, <span class="hljs-matrix">[<span class="hljs-number">200</span> <span class="hljs-number">300</span>]</span>)
 </code></pre>
 <h4 id="imrotate">imrotate</h4>
 <p>This command can be used rotate the image by given angle (in degrees) in a counterclockwise direction around its center point. To rotate the image clockwise, specify a negative value for angle. &apos;imrotate&apos; makes the output image large enough to contain the entire rotated image. Here&apos;s the syntax for doing the same.</p>
-<p><code>variable_name = imrotate (image, degrees)</code></p>
+<p><code>variable_name = imrotate(image, degrees)</code></p>
 <pre><code class="lang-MATLAB"><span class="hljs-comment">% Rotate the image by 75 degrees in counter clockwise direction</span>
 <span class="hljs-comment">% about the center</span>
 
-d = imrotate (a, <span class="hljs-number">75</span>)
+d = imrotate(a, <span class="hljs-number">75</span>)
 </code></pre>
-<p><strong>NOTE</strong>: imrotate uses nearest neighbor interpolation, setting the values of pixels in output_image that are outside the rotated image to 0 (zero).</p>
+<p>By default, imrotate uses nearest neighbor interpolation, setting the values of pixels in output_image that are outside the rotated image to 0 (zero).</p>
 <h4 id="subplot">subplot</h4>
 <p>Creates axis in tiled positions. Whenever we need to display two or more images in one window, we use subplot. Here&apos;s the syntax.</p>
-<p><code>subplot (m, n, p)</code></p>
-<p>It divides the current figure into an &apos;m x n&apos; grid and creates an axes for a subplot in the position specified by &apos;p&apos;. <strong>MATLAB</strong> numbers its subplots by row, such that the first subplot is the first column of the first row, the second subplot is the second column of the first row, and so on. If the axes already exists, then the &apos;subplot(m,n,p)&apos;&apos; makes the subplot in position p the current axes.</p>
+<p><code>subplot(m, n, p)</code></p>
+<p>It divides the current figure into an &apos;m x n&apos; grid and creates an axes for a subplot in the position specified by &apos;p&apos;. <strong>MATLAB</strong> numbers its subplots by row, such that the first subplot is the first column of the first row, the second subplot is the second column of the first row, and so on. If the axes already exists, then the <code>subplot(m,n,p)</code> makes the subplot in position p the current axes.</p>
 <p>Example</p>
-<pre><code class="lang-MATLAB">
-figure, subplot (<span class="hljs-number">2</span>, <span class="hljs-number">2</span>, <span class="hljs-number">1</span>)
-
+<pre><code class="lang-MATLAB">figure, subplot(<span class="hljs-number">2</span>, <span class="hljs-number">2</span>, <span class="hljs-number">1</span>)
 imshow (a)
 </code></pre>
-<p>&apos;subplot (2, 2, 1)&apos; will divide the figure into a 2 x 2 matrix. &apos;1&apos; is representing the position where the image &apos;a&apos; is going to be displayed since there are 4 positions.</p>
+<p>&apos;subplot(2, 2, 1)&apos; will divide the figure into a 2 x 2 matrix. &apos;1&apos; is representing the position where the image &apos;a&apos; is going to be displayed since there are 4 positions.</p>
 
                     
                     </section>
@@ -785,6 +783,10 @@ imshow (a)
 <script src="../../gitbook/app.js"></script>
 
     
+    <script src="../../gitbook/plugins/gitbook-plugin-ga/plugin.js"></script>
+    
+
+    
     <script src="../../gitbook/plugins/gitbook-plugin-search/lunr.min.js"></script>
     
 
@@ -802,7 +804,7 @@ imshow (a)
 
 <script>
 require(["gitbook"], function(gitbook) {
-    var config = {"highlight":{},"search":{"maxIndexSize":1000000},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2}};
+    var config = {"ga":{"token":"UA-74194055-1","configuration":"auto"},"highlight":{},"search":{"maxIndexSize":1000000},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2}};
     gitbook.start(config);
 });
 </script>

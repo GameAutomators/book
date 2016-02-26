@@ -37,7 +37,7 @@
         
     
     
-    <link rel="next" href="../Examples/circuits.html" />
+    <link rel="next" href="../Examples/2-electronics.html" />
     
     
     <link rel="prev" href="../Examples/flow_free.html" />
@@ -53,7 +53,7 @@
         data-chapter-title="Unblock Me"
         data-filepath="Examples/unblockme.md"
         data-basepath=".."
-        data-revision="Thu Feb 18 2016 17:34:40 GMT+0530 (IST)"
+        data-revision="Fri Feb 26 2016 10:19:40 GMT+0530 (IST)"
         data-innerlanguage="">
     
 
@@ -422,10 +422,10 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="5.1" data-path="Examples/adb.html">
+        <li class="chapter " data-level="5.1" data-path="Examples/1-image.html">
             
                 
-                    <a href="../Examples/adb.html">
+                    <a href="../Examples/1-image.html">
                 
                         <i class="fa fa-check"></i>
                         
@@ -518,10 +518,10 @@
             
         </li>
     
-        <li class="chapter " data-level="5.2" data-path="Examples/circuits.html">
+        <li class="chapter " data-level="5.2" data-path="Examples/2-electronics.html">
             
                 
-                    <a href="../Examples/circuits.html">
+                    <a href="../Examples/2-electronics.html">
                 
                         <i class="fa fa-check"></i>
                         
@@ -569,10 +569,10 @@
             
         </li>
     
-        <li class="chapter " data-level="5.3" data-path="Examples/circuit_ip.html">
+        <li class="chapter " data-level="5.3" data-path="Examples/3-both.html">
             
                 
-                    <a href="../Examples/circuit_ip.html">
+                    <a href="../Examples/3-both.html">
                 
                         <i class="fa fa-check"></i>
                         
@@ -722,7 +722,7 @@
 </div> 
 
 <h3 id="overview">Overview</h3>
-<p>First, using image processing all the blocks alignment and position is detected using image processing in MATLAB. Using an algorithm, the game is solved and blocks are moved to free the red block. The swipes on the screen are simulated using adb tool.</p>
+<p>First, using image processing all the blocks alignment and position is detected using image processing in MATLAB. Using breadth first search algorithm, the game is solved and blocks are moved to free the red block. The swipes on the screen are simulated using adb tool.</p>
 <h3 id="requirements">Requirements</h3>
 <ul>
 <li>Computer with MATLAB, ADB Tool and required drivers set up.</li>
@@ -792,13 +792,17 @@ cmd = <span class="hljs-string">&apos;unblock.exe&apos;</span>;
         <a href="../Examples/flow_free.html" class="navigation navigation-prev " aria-label="Previous page: Flow free"><i class="fa fa-angle-left"></i></a>
         
         
-        <a href="../Examples/circuits.html" class="navigation navigation-next " aria-label="Next page: Using Electronics"><i class="fa fa-angle-right"></i></a>
+        <a href="../Examples/2-electronics.html" class="navigation navigation-next " aria-label="Next page: Using Electronics"><i class="fa fa-angle-right"></i></a>
         
     </div>
 </div>
 
         
 <script src="../gitbook/app.js"></script>
+
+    
+    <script src="../gitbook/plugins/gitbook-plugin-ga/plugin.js"></script>
+    
 
     
     <script src="../gitbook/plugins/gitbook-plugin-search/lunr.min.js"></script>
@@ -818,7 +822,7 @@ cmd = <span class="hljs-string">&apos;unblock.exe&apos;</span>;
 
 <script>
 require(["gitbook"], function(gitbook) {
-    var config = {"highlight":{},"search":{"maxIndexSize":1000000},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2}};
+    var config = {"ga":{"token":"UA-74194055-1","configuration":"auto"},"highlight":{},"search":{"maxIndexSize":1000000},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2}};
     gitbook.start(config);
 });
 </script>

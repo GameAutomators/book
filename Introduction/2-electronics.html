@@ -53,7 +53,7 @@
         data-chapter-title="Using Electronics"
         data-filepath="Introduction/2-electronics.md"
         data-basepath=".."
-        data-revision="Thu Feb 18 2016 17:34:40 GMT+0530 (IST)"
+        data-revision="Fri Feb 26 2016 10:19:40 GMT+0530 (IST)"
         data-innerlanguage="">
     
 
@@ -422,10 +422,10 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="5.1" data-path="Examples/adb.html">
+        <li class="chapter " data-level="5.1" data-path="Examples/1-image.html">
             
                 
-                    <a href="../Examples/adb.html">
+                    <a href="../Examples/1-image.html">
                 
                         <i class="fa fa-check"></i>
                         
@@ -518,10 +518,10 @@
             
         </li>
     
-        <li class="chapter " data-level="5.2" data-path="Examples/circuits.html">
+        <li class="chapter " data-level="5.2" data-path="Examples/2-electronics.html">
             
                 
-                    <a href="../Examples/circuits.html">
+                    <a href="../Examples/2-electronics.html">
                 
                         <i class="fa fa-check"></i>
                         
@@ -569,10 +569,10 @@
             
         </li>
     
-        <li class="chapter " data-level="5.3" data-path="Examples/circuit_ip.html">
+        <li class="chapter " data-level="5.3" data-path="Examples/3-both.html">
             
                 
-                    <a href="../Examples/circuit_ip.html">
+                    <a href="../Examples/3-both.html">
                 
                         <i class="fa fa-check"></i>
                         
@@ -715,22 +715,20 @@
 <p><img src="../Images/methods-2.jpg" alt="image9"></p>
 <p><em>Fig. The image depicts the block diagram for a typical electronic circuit that can solve a game on the mobile</em></p>
 <p>The microcontroller senses the inputs from a sensor that is used to detect what&apos;s on the screen, analyses the data using a logic that has been programmed into it and sends appropriate commands to the touch circuitry. </p>
-<p>Refer to the electronics chapter in the book to learn in detail about who the sensing and touching circuits work.</p>
-<h3 id="advantages">Advantages</h3>
+<p>Refer to the <em>Electronics</em> chapter in the book to learn in detail about how the sensing and touching circuits work.</p>
+<h3 id="advantages-of-this-approach">Advantages of this approach</h3>
 <ul>
-<li>Since ADB tool processing is slow as discussed earlier, so it become difficult to solve time bounded game. This problem can be overcome by using electronics circuits.</li>
+<li>Since ADB tool processing is slow as discussed earlier, it becomes difficult to solve time bounded game. This problem can be overcome by using electronic circuits.</li>
 </ul>
-<h3 id="disadvantages">Disadvantages</h3>
+<h3 id="disadvantages-of-this-approach">Disadvantages of this approach</h3>
 <ul>
 <li>External condition affects the working of the circuits.</li>
 <li>Setting up the touch part of the circuit takes some time.</li>
-<li>It becomes difficult to debug the circuit.</li>
-<li>It&apos;s difficult to write complicated algorithms using Arduino.</li>
-<li>Not many games can be solved because we can not implement Machine Learning to Arduino.</li>
-<li>Circuit required to simulate swipe becomes a bit difficult.</li>
+<li>It&apos;s difficult to implement complex algorithms on Arduino.</li>
+<li>Circuit required to simulate swipe is complicated and involves mechanical parts.</li>
 </ul>
 <h3 id="games-which-can-be-solved-using-this-method">Games which can be solved using this method</h3>
-<p>Piano Tiles and Ready Steady Bang are some Android game which can be solved using this method because in these we just need to detect a particular word or a small part using sensors and then simulating touch using electronic circuits.</p>
+<p>&apos;Piano Tiles&apos; and &apos;Ready Steady Bang&apos; can be solved using this method because in these we just need to detect a intensity change on a small part of the screen using sensors and then simulate touch using electronic circuits.</p>
 
                     
                     </section>
@@ -753,6 +751,10 @@
 <script src="../gitbook/app.js"></script>
 
     
+    <script src="../gitbook/plugins/gitbook-plugin-ga/plugin.js"></script>
+    
+
+    
     <script src="../gitbook/plugins/gitbook-plugin-search/lunr.min.js"></script>
     
 
@@ -770,7 +772,7 @@
 
 <script>
 require(["gitbook"], function(gitbook) {
-    var config = {"highlight":{},"search":{"maxIndexSize":1000000},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2}};
+    var config = {"ga":{"token":"UA-74194055-1","configuration":"auto"},"highlight":{},"search":{"maxIndexSize":1000000},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2}};
     gitbook.start(config);
 });
 </script>

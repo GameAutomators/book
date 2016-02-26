@@ -53,7 +53,7 @@
         data-chapter-title="Flow free"
         data-filepath="Examples/flow_free.md"
         data-basepath=".."
-        data-revision="Thu Feb 18 2016 17:34:40 GMT+0530 (IST)"
+        data-revision="Fri Feb 26 2016 10:19:40 GMT+0530 (IST)"
         data-innerlanguage="">
     
 
@@ -422,10 +422,10 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="5.1" data-path="Examples/adb.html">
+        <li class="chapter " data-level="5.1" data-path="Examples/1-image.html">
             
                 
-                    <a href="../Examples/adb.html">
+                    <a href="../Examples/1-image.html">
                 
                         <i class="fa fa-check"></i>
                         
@@ -518,10 +518,10 @@
             
         </li>
     
-        <li class="chapter " data-level="5.2" data-path="Examples/circuits.html">
+        <li class="chapter " data-level="5.2" data-path="Examples/2-electronics.html">
             
                 
-                    <a href="../Examples/circuits.html">
+                    <a href="../Examples/2-electronics.html">
                 
                         <i class="fa fa-check"></i>
                         
@@ -569,10 +569,10 @@
             
         </li>
     
-        <li class="chapter " data-level="5.3" data-path="Examples/circuit_ip.html">
+        <li class="chapter " data-level="5.3" data-path="Examples/3-both.html">
             
                 
-                    <a href="../Examples/circuit_ip.html">
+                    <a href="../Examples/3-both.html">
                 
                         <i class="fa fa-check"></i>
                         
@@ -748,7 +748,7 @@
 <p>If it is not detetcting the all cirlces then color thresholding is applied for that group of colors and each color is assigned a new id. For blank cell id is zero.</p>
 <p>Further, this grid is converted into a string and passed as an argument to algorithm.</p>
 <h4 id="step-3-algorithm">Step 3: Algorithm</h4>
-<p>The algorithm checks all the possible ways using BackTrack and tries to solve it under given rules. and solved matrix is returned. The code is written in c++. It takes command line string input and return string output of same length. Here&apos;s the code that is used in MATLAB for this purpose.</p>
+<p>The algorithm checks all the possible ways using back tracking and tries to solve it under given rules. and solved matrix is returned. The code is written in c++. It takes command line string input and return string output of same length. Here&apos;s the code that is used in MATLAB for this purpose.</p>
 <pre><code class="lang-MATLAB"><span class="hljs-comment">%  s is input string.</span>
 cmd = <span class="hljs-string">&apos;flowfree.exe &apos;</span>;
 <span class="hljs-matrix">[status,out]</span> = system(<span class="hljs-matrix">[cmd s]</span>);
@@ -759,7 +759,7 @@ cmd = <span class="hljs-string">&apos;flowfree.exe &apos;</span>;
 system(<span class="hljs-string">&apos; adb shell input swipe x1 y1 x2 y2 100&apos;</span>);
 </code></pre>
 <h3 id="conclusions">Conclusions</h3>
-<p>This way, the game flow free is automated. This code works well onlye till 10x10 blocks. For higher sizes, the code takes too much time and will be unable to solve.</p>
+<p>This way, the game flow free is automated. This code works well only till 10x10 blocks. For higher sizes, this implementation takes too much time.</p>
 
                     
                     </section>
@@ -782,6 +782,10 @@ system(<span class="hljs-string">&apos; adb shell input swipe x1 y1 x2 y2 100&ap
 <script src="../gitbook/app.js"></script>
 
     
+    <script src="../gitbook/plugins/gitbook-plugin-ga/plugin.js"></script>
+    
+
+    
     <script src="../gitbook/plugins/gitbook-plugin-search/lunr.min.js"></script>
     
 
@@ -799,7 +803,7 @@ system(<span class="hljs-string">&apos; adb shell input swipe x1 y1 x2 y2 100&ap
 
 <script>
 require(["gitbook"], function(gitbook) {
-    var config = {"highlight":{},"search":{"maxIndexSize":1000000},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2}};
+    var config = {"ga":{"token":"UA-74194055-1","configuration":"auto"},"highlight":{},"search":{"maxIndexSize":1000000},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2}};
     gitbook.start(config);
 });
 </script>

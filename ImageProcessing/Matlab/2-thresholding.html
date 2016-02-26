@@ -53,7 +53,7 @@
         data-chapter-title="Thresholding"
         data-filepath="ImageProcessing/Matlab/2-thresholding.md"
         data-basepath="../.."
-        data-revision="Thu Feb 18 2016 17:34:40 GMT+0530 (IST)"
+        data-revision="Fri Feb 26 2016 10:19:40 GMT+0530 (IST)"
         data-innerlanguage="">
     
 
@@ -422,10 +422,10 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="5.1" data-path="Examples/adb.html">
+        <li class="chapter " data-level="5.1" data-path="Examples/1-image.html">
             
                 
-                    <a href="../../Examples/adb.html">
+                    <a href="../../Examples/1-image.html">
                 
                         <i class="fa fa-check"></i>
                         
@@ -518,10 +518,10 @@
             
         </li>
     
-        <li class="chapter " data-level="5.2" data-path="Examples/circuits.html">
+        <li class="chapter " data-level="5.2" data-path="Examples/2-electronics.html">
             
                 
-                    <a href="../../Examples/circuits.html">
+                    <a href="../../Examples/2-electronics.html">
                 
                         <i class="fa fa-check"></i>
                         
@@ -569,10 +569,10 @@
             
         </li>
     
-        <li class="chapter " data-level="5.3" data-path="Examples/circuit_ip.html">
+        <li class="chapter " data-level="5.3" data-path="Examples/3-both.html">
             
                 
-                    <a href="../../Examples/circuit_ip.html">
+                    <a href="../../Examples/3-both.html">
                 
                         <i class="fa fa-check"></i>
                         
@@ -731,11 +731,11 @@ green = img(:,:,<span class="hljs-number">2</span>); <span class="hljs-comment">
 blue = img(:,:,<span class="hljs-number">3</span>); <span class="hljs-comment">% filters third layer</span>
 </code></pre>
 <h4 id="thresholding-code-in-matlab">Thresholding code in MATLAB</h4>
-<p>The required region or object must satisfy the condition that it&apos;s pixel values vary in the limits defined above. That can be implement in one line in MATLAB using the following code.</p>
+<p>The required region or object must satisfy the condition that it&apos;s pixel values vary in the limits defined above. That can be implemented in one line in MATLAB using the following code.</p>
 <pre><code class="lang-MATLAB">out = red&gt;redMin &amp; red&lt;redMax &amp; blue&gt;blueMin &amp; ...
       blue&lt;blueMax &amp; green&gt;greenMin &amp; green&gt;greenMax;
 </code></pre>
-<p><code>out</code> will be a binary image with required object marked in white and otehrs in black.</p>
+<p><code>out</code> will be a binary image with required object marked in white and others in black.</p>
 <p>But please understand that this code cannot be applied to all images. It can be applied only when the object to be detected is of the different color from the rest. </p>
 
                     
@@ -759,6 +759,10 @@ blue = img(:,:,<span class="hljs-number">3</span>); <span class="hljs-comment">%
 <script src="../../gitbook/app.js"></script>
 
     
+    <script src="../../gitbook/plugins/gitbook-plugin-ga/plugin.js"></script>
+    
+
+    
     <script src="../../gitbook/plugins/gitbook-plugin-search/lunr.min.js"></script>
     
 
@@ -776,7 +780,7 @@ blue = img(:,:,<span class="hljs-number">3</span>); <span class="hljs-comment">%
 
 <script>
 require(["gitbook"], function(gitbook) {
-    var config = {"highlight":{},"search":{"maxIndexSize":1000000},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2}};
+    var config = {"ga":{"token":"UA-74194055-1","configuration":"auto"},"highlight":{},"search":{"maxIndexSize":1000000},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2}};
     gitbook.start(config);
 });
 </script>

@@ -53,7 +53,7 @@
         data-chapter-title="Using Image Processing and Electronics"
         data-filepath="Introduction/3-both.md"
         data-basepath=".."
-        data-revision="Thu Feb 18 2016 17:34:40 GMT+0530 (IST)"
+        data-revision="Fri Feb 26 2016 10:19:40 GMT+0530 (IST)"
         data-innerlanguage="">
     
 
@@ -422,10 +422,10 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="5.1" data-path="Examples/adb.html">
+        <li class="chapter " data-level="5.1" data-path="Examples/1-image.html">
             
                 
-                    <a href="../Examples/adb.html">
+                    <a href="../Examples/1-image.html">
                 
                         <i class="fa fa-check"></i>
                         
@@ -518,10 +518,10 @@
             
         </li>
     
-        <li class="chapter " data-level="5.2" data-path="Examples/circuits.html">
+        <li class="chapter " data-level="5.2" data-path="Examples/2-electronics.html">
             
                 
-                    <a href="../Examples/circuits.html">
+                    <a href="../Examples/2-electronics.html">
                 
                         <i class="fa fa-check"></i>
                         
@@ -569,10 +569,10 @@
             
         </li>
     
-        <li class="chapter " data-level="5.3" data-path="Examples/circuit_ip.html">
+        <li class="chapter " data-level="5.3" data-path="Examples/3-both.html">
             
                 
-                    <a href="../Examples/circuit_ip.html">
+                    <a href="../Examples/3-both.html">
                 
                         <i class="fa fa-check"></i>
                         
@@ -710,23 +710,22 @@
                     <section class="normal" id="section-">
                     
                         <h2 id="using-electronics-and-image-processing">Using Electronics and Image Processing</h2>
-<p>In this method we will be using the concepts of electronics and image processing together to automate the game.The Basic concepts of image processing which we are going to use is described in detail in the next chapter of this book.</p>
+<p>In this method we will be using the concepts of electronics and image processing together to automate the game. The basic concepts of image processing which we are going to use is described in detail in the next chapter of this book.</p>
 <h3 id="approach">Approach</h3>
 <p><img src="../Images/methods-3.png" alt="image11"></p>
 <p><em>Fig.The image depicts the connection between the computer, microcontroller and the phone for game automation</em></p>
-<p>We use a webcam which takes the pictures of the mobile screen and sends it to MATLAB so that it can be used for the next processing step.The MATLAB algorithm processes the image according to our need and generates the duration of touch and sends it to the microcontroller(Arduino here),which in turn is used to simulate the touch on the phone screen using certain circuits.
-For Example, In the game named piano tiles,our webcam will capture the image of the screen and send it to the laptop where we can separate the white and black tiles and accordingly we can send the information to the Arduino to simulate a touch on the particular area of the screen where the black tiles are present.</p>
-<h3 id="advantages">Advantages</h3>
+<p>We use a webcam which streams the video of the mobile screen into MATLAB which performs image processing according to our need and generates the duration of touch and sends it to the microcontroller (Arduino here), which is used to simulate the touch on the phone screen using certain circuits.</p>
+<p>For example, in the game &apos;Stick Hero&apos;, our webcam will capture the image of the screen and send it to the laptop where we can detect the pillars and the distace between them using image processing. Depending on the distance, we can send the information to the Arduino to simulate a touch for a specified time.</p>
+<h3 id="advantages-of-this-approach">Advantages of this approach</h3>
 <ul>
-<li>This method is mostly used to solve more complex games for example- an  Android game Flappy Bird.</li>
-<li>Faster than ADB tool .</li>
+<li>This method can be used to solve more complex games like &apos;Flappy Bird&apos;.</li>
+<li>Faster than ADB tool.</li>
 <li>Debugging becomes easier.</li>
 </ul>
-<h3 id="disadvantages">Disadvantages</h3>
+<h3 id="disadvantages-of-this-approach">Disadvantages of this approach</h3>
 <ul>
-<li>In some Android games we notice that background changes after completion of a level, so image processing for such games becomes difficult.</li>
 <li>Complex circuits are required.</li>
-<li>Since the amount of light affect the image taken by webcam, thus external conditions affects the working of the circuits.</li>
+<li>Since external lighting influences the image captured by the webcam, we may have to change the algorithm accordingly each time.</li>
 <li>Setting the touch part of circuit becomes difficult.</li>
 </ul>
 <p>We can enhance the efficiency of this method by using OpenCV instead of MATLAB.</p>
@@ -752,6 +751,10 @@ For Example, In the game named piano tiles,our webcam will capture the image of 
 <script src="../gitbook/app.js"></script>
 
     
+    <script src="../gitbook/plugins/gitbook-plugin-ga/plugin.js"></script>
+    
+
+    
     <script src="../gitbook/plugins/gitbook-plugin-search/lunr.min.js"></script>
     
 
@@ -769,7 +772,7 @@ For Example, In the game named piano tiles,our webcam will capture the image of 
 
 <script>
 require(["gitbook"], function(gitbook) {
-    var config = {"highlight":{},"search":{"maxIndexSize":1000000},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2}};
+    var config = {"ga":{"token":"UA-74194055-1","configuration":"auto"},"highlight":{},"search":{"maxIndexSize":1000000},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2}};
     gitbook.start(config);
 });
 </script>
