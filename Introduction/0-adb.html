@@ -53,7 +53,7 @@
         data-chapter-title="Setting up ADB tool"
         data-filepath="Introduction/0-adb.md"
         data-basepath=".."
-        data-revision="Fri Feb 26 2016 10:19:40 GMT+0530 (IST)"
+        data-revision="Fri Mar 11 2016 10:45:02 GMT+0530 (IST)"
         data-innerlanguage="">
     
 
@@ -710,29 +710,33 @@
                     <section class="normal" id="section-">
                     
                         <h2 id="setting-up-adb-tool">Setting up adb tool</h2>
-<p>Android Debug Bridge (adb) is a command line tool that allows the computer to communicate with attached electronic devices. We will be using adb tool to mostly capture screenshots of the mobile screen, simulate virtual touches and virtual swipes. </p>
+<p>Android Debug Bridge (adb) is a command line tool that allows the computer to communicate with attached Android devices. We will be using adb tool to capture screenshots of the mobile screen, simulate virtual touches and virtual swipes. </p>
 <p>These are the steps that you have to follow to setup adb tool.</p>
-<p><strong>Step 1: Installation</strong></p>
-<p>We will need Android SDK or ADB fastboot in order to be able to use the adb tool. In general, most people have Java JDK already installed, so you might not have to do anything here. But if you don&apos;t have it installed, install it.</p>
-<p><strong>Step 2: Enable USB Debugging</strong></p>
-<p>To use adb with your Android device, you have to enable USB debugging first. You will find this in the developer options menu inside settings. If the developer options menu is not available, go into about phone menu in settings and tap the build number seven times to enable developer options menu. </p>
-<p>Also, make sure that you accept RSA fingerprint message shown in the device when its connected for the first time.</p>
-<p><strong>Step 3: Download adb tool files</strong></p>
-<p>Download the files in the provided link. You should have these files in the directory that you are working, or you can add adb.exe to your path in environment variables.</p>
+<p><strong>Step 1: Setting up adb tool</strong></p>
+<p>We will need adb fastboot in order to be able to use the adb tool. Download the files in the provided link. </p>
 <p>Link: <a href="http://forum.xda-developers.com/showthread.php?p=48915118" target="_blank">http://forum.xda-developers.com/showthread.php?p=48915118</a></p>
+<p>You should include these files in the directory that you are working, or you can add adb.exe to your path in environment variables.</p>
+<p><strong>Step 2: Enable USB Debugging</strong></p>
+<p>To use adb with your Android device, you have to enable USB debugging. </p>
+<blockquote>
+<p>You will find this in the developer options menu inside settings. If the developer options menu is not available, go into about phone menu in settings and tap the build number seven times to enable developer options menu. Also, make sure that you accept RSA fingerprint message shown in the device when its connected for the first time.</p>
+</blockquote>
 <p><strong>Step 4: Testing</strong></p>
-<p>To test whether ADB is working properly, connect your Android device to your computer using a USB cable and run the following command in the command prompt. This should list the devices.</p>
+<p>To test whether adb is working properly, connect your Android device to your computer using USB cable and run the following command in the command prompt. This should list the devices.</p>
 <pre><code>adb devices
 </code></pre><p>Also run the following command on MATLAB</p>
 <pre><code class="lang-MATLAB">system(<span class="hljs-string">&apos;adb devices&apos;</span>)
 </code></pre>
-<p>The output of both the command should look similar to this if your Android device is connected properly and detected.</p>
+<p>The output of both the commands should look similar to this if your Android device is connected properly and detected.</p>
 <pre><code class="lang-C">List of devices attached  
 T038509BHC    device
 </code></pre>
-<p>If your device is connected but nothing appears in the list, you&apos;ll need to install the appropriate drivers for your phone. You can find the drivers from Universal drivers (<a href="http://adbdriver.com/downloads/" target="_blank">http://adbdriver.com/downloads/</a>) or Android developers website (<a href="http://developer.android.com/tools/extras/oem-usb.html#InstallingDriver" target="_blank">http://developer.android.com/tools/extras/oem-usb.html#InstallingDriver</a>).</p>
+<p>If your device is connected but nothing appears in the list, you&apos;ll need to install the appropriate drivers for your phone. </p>
+<blockquote>
+<p>You can find the drivers from Universal drivers (<a href="http://adbdriver.com/downloads/" target="_blank">http://adbdriver.com/downloads/</a>) or Android developers website (<a href="http://developer.android.com/tools/extras/oem-usb.html#InstallingDriver" target="_blank">http://developer.android.com/tools/extras/oem-usb.html#InstallingDriver</a>).</p>
 <p>Open the Device Manager (click Start, type Device Manager, and press Enter), locate your device, right-click it and select Properties. You may see a yellow exclamation mark next to the device if its driver isn&apos;t installed properly. You might also have to force windows to use the installed drivers for your phone.</p>
-<h5 id="basic-adb-commands">Basic ADB commands</h5>
+</blockquote>
+<h5 id="basic-adb-commands">Basic adb commands</h5>
 <p>Here are some commands that can be used with adb tool.</p>
 <p>To pull the image into working directory.</p>
 <pre><code>adb pull

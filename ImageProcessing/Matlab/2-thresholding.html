@@ -53,7 +53,7 @@
         data-chapter-title="Thresholding"
         data-filepath="ImageProcessing/Matlab/2-thresholding.md"
         data-basepath="../.."
-        data-revision="Fri Feb 26 2016 10:19:40 GMT+0530 (IST)"
+        data-revision="Fri Mar 11 2016 10:45:02 GMT+0530 (IST)"
         data-innerlanguage="">
     
 
@@ -715,28 +715,51 @@
 <p>The values for thresholding are choosen based upon the pixel intensities of the objects of interest in the image. There are multiple ways to look at these values. </p>
 <p>One way is to use <code>imshow(img)</code> and use the pixel info tool to see the RGB values of specific pixels. You can also use <code>imtool(img)</code> and point the cursor at specific pixels to see the RGB values at the bottom right of the window. </p>
 <p>A better way to keep track of all these pixel values in an image is by using the function <code>impixel</code>. It is used with the following syntax.</p>
-<pre><code class="lang-MATLAB">values = impixel(img);
+<pre><code class="lang-MATLAB"><span class="hljs-comment">%% Finding pixel values</span>
+values = impixel(img);
 </code></pre>
 <p>A new window pops up when the above command is executed where you can click on the object at a specific pixel and the RGB values of that pixel are stored in <code>values</code>. You can keep clicking at multiple point in the region of interest so that you have all the values stored in the variable <code>values</code>. You can stop choosing by double clicking on one of the pixels.</p>
-<p>And there you have the pixel values that you need to threshold in the matrix <code>values</code>. When you finish selecting pixels, impixel returns a &#x2018;m x 3&#x2019; matrix of RGB values in the supplied output argument. You can now look at the data inside <code>values</code> and see what are the ranges of red, green and blue intensity values in your image. Initialize the following variables depending on that data: <code>redMin</code>, <code>redMax</code>, <code>greenMin</code>, <code>greenMax</code>, <code>blueMin</code>, <code>blueMax</code>.</p>
+<div class="row" style="text-align:center;">
+    ![rotate MATLAB](/Images/img-impixel.png)
+</div>
+
+<p>And there you have the pixel values that you need to threshold in the matrix <code>values</code>. When you finish selecting pixels, impixel returns a <code>m x 3</code> matrix of RGB values in the supplied output argument. You can now look at the data inside <code>values</code> and see what are the ranges of red, green and blue intensity values in your image. Initialize the following variables depending on that data: <code>redMin</code>, <code>redMax</code>, <code>greenMin</code>, <code>greenMax</code>, <code>blueMin</code>, <code>blueMax</code>.</p>
 <p>Here&apos;s a sample of the values.</p>
-<pre><code class="lang-MATLAB">redMin = <span class="hljs-number">144</span>; redMax = <span class="hljs-number">190</span>;
-blueMin = <span class="hljs-number">0</span>; blueMax = <span class="hljs-number">43</span>;
-greenMin = <span class="hljs-number">209</span>; greenMax = <span class="hljs-number">233</span>;
+<pre><code class="lang-MATLAB"><span class="hljs-comment">%% Choosing the pixel values</span>
+redMin = <span class="hljs-number">200</span>; redMax = <span class="hljs-number">255</span>;
+greenMin = <span class="hljs-number">170</span>; greenMax = <span class="hljs-number">255</span>;
+blueMin = <span class="hljs-number">0</span>; blueMax = <span class="hljs-number">15</span>;
 </code></pre>
 <h4 id="splitting-an-image-into-rgb-channels">Splitting an image into RGB channels</h4>
 <p>An image can be split into RGB channels in MATLAB by using the following piece of code.</p>
-<pre><code class="lang-MATLAB">red = img(:,:,<span class="hljs-number">1</span>); <span class="hljs-comment">% filters first layer</span>
+<pre><code class="lang-MATLAB"><span class="hljs-comment">%% Splitting into channels</span>
+red = img(:,:,<span class="hljs-number">1</span>); <span class="hljs-comment">% filters first layer</span>
 green = img(:,:,<span class="hljs-number">2</span>); <span class="hljs-comment">% filters second layer</span>
 blue = img(:,:,<span class="hljs-number">3</span>); <span class="hljs-comment">% filters third layer</span>
+
+<span class="hljs-comment">% Displaying the result</span>
+figure, subplot(<span class="hljs-number">1</span>,<span class="hljs-number">3</span>,<span class="hljs-number">1</span>), imshow(red)
+subplot(<span class="hljs-number">1</span>,<span class="hljs-number">3</span>,<span class="hljs-number">2</span>), imshow(green)
+subplot(<span class="hljs-number">1</span>,<span class="hljs-number">3</span>,<span class="hljs-number">3</span>), imshow(blue)
 </code></pre>
+<p>The output is shown below.</p>
+<div class="row" style="text-align:center;">
+    ![rotate MATLAB](/Images/img-rgb.png)
+</div>
+
 <h4 id="thresholding-code-in-matlab">Thresholding code in MATLAB</h4>
 <p>The required region or object must satisfy the condition that it&apos;s pixel values vary in the limits defined above. That can be implemented in one line in MATLAB using the following code.</p>
-<pre><code class="lang-MATLAB">out = red&gt;redMin &amp; red&lt;redMax &amp; blue&gt;blueMin &amp; ...
-      blue&lt;blueMax &amp; green&gt;greenMin &amp; green&gt;greenMax;
+<pre><code class="lang-MATLAB"><span class="hljs-comment">%% Thresholding</span>
+out = red&gt;=redMin &amp; red&lt;=redMax &amp; green&gt;=greenMin &amp; ...
+      green&lt;=greenMax &amp; blue&gt;=blueMin &amp; blue&lt;=blueMax;
+figure, imshow(out)
 </code></pre>
 <p><code>out</code> will be a binary image with required object marked in white and others in black.</p>
-<p>But please understand that this code cannot be applied to all images. It can be applied only when the object to be detected is of the different color from the rest. </p>
+<div class="row" style="text-align:center;">
+    ![rotate MATLAB](/Images/img-out.png)
+</div>
+
+<p>But understand that this code cannot be applied to all images. It can be applied only when the object to be detected is of the different color from the rest. In the image that we are using, direct thresholding was not good enough to detect the block perfectly. We how to do that using image enhancement in the next section.</p>
 
                     
                     </section>
