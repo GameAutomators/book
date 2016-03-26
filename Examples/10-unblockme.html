@@ -5,7 +5,7 @@
         <!-- head:start -->
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <title>Acknowledgements | Building Mobile Game Solvers</title>
+        <title>Unblock Me | Building Mobile Game Solvers</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="generator" content="GitBook 2.6.6">
@@ -37,10 +37,10 @@
         
     
     
-    <link rel="next" href="../Acknowledgements/contributors.html" />
+    <link rel="next" href="../Examples/electronics.html" />
     
     
-    <link rel="prev" href="../Examples/all_others.html" />
+    <link rel="prev" href="../Examples/11-flow-free.html" />
     
 
         <!-- head:end -->
@@ -49,9 +49,9 @@
         <!-- body:start -->
         
     <div class="book"
-        data-level="6"
-        data-chapter-title="Acknowledgements"
-        data-filepath="Acknowledgements/README.md"
+        data-level="5.1.5"
+        data-chapter-title="Unblock Me"
+        data-filepath="Examples/10-unblockme.md"
         data-basepath=".."
         data-revision="Mon Mar 28 2016 18:55:04 GMT+0530 (IST)"
         data-innerlanguage="">
@@ -490,7 +490,7 @@
             
         </li>
     
-        <li class="chapter " data-level="5.1.5" data-path="Examples/10-unblockme.html">
+        <li class="chapter active" data-level="5.1.5" data-path="Examples/10-unblockme.html">
             
                 
                     <a href="../Examples/10-unblockme.html">
@@ -617,7 +617,7 @@
             
         </li>
     
-        <li class="chapter active" data-level="6" data-path="Acknowledgements/index.html">
+        <li class="chapter " data-level="6" data-path="Acknowledgements/index.html">
             
                 
                     <a href="../Acknowledgements/index.html">
@@ -701,9 +701,76 @@
                 
                     <section class="normal" id="section-">
                     
-                        <h1 id="acknowledgements">Acknowledgements</h1>
-<p>I would like to thank The Lakshya Foundation and NIT Warangal for providing us with the workspace and ideal environment which was a major contributor.</p>
-<p>I would also like to thank Anand Rajagopalan, Ravi Prakash and Gopala Krishna for providing valuble feedback on the book.</p>
+                        <h1 id="unblockme">Unblockme</h1>
+<h3 id="game-description">Game Description</h3>
+<p>This is a single player game. The goal is to unblock the red block out of the board by sliding the other blocks out of the way, unblock it with the minimal moves.</p>
+<p><strong>Playstore Link:</strong> <a href="https://play.google.com/store/apps/details?id=com.kiragames.unblockmefree" target="_blank">Unblockme</a></p>
+<p><img src="../Images/playstore_unblockme.png" alt="Playstore"> 
+<img src="../Images/unblock.png" alt="Image"></p>
+<p><strong>Difficulty level</strong>: Moderate</p>
+<p>You can see a demo video of the working of this game at the following link: <a href="https://youtu.be/_-aNdgeLc5w" target="_blank">https://youtu.be/_-aNdgeLc5w</a></p>
+<div class="row" style="text-align:center;">
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/_-aNdgeLc5w" frameborder="0" allowfullscreen></iframe>
+</div> 
+
+<h3 id="overview">Overview</h3>
+<p>First, using image processing all the blocks alignment and position is detected using image processing in MATLAB. Using breadth first search algorithm, the game is solved and blocks are moved to free the red block. The swipes on the screen are simulated using adb tool.</p>
+<h3 id="requirements">Requirements</h3>
+<ul>
+<li>Computer with MATLAB, ADB Tool and required drivers set up.</li>
+<li>An Android Device with the &#x2018;Sudoku&#x2019; game installed on it. (Turn on the Developer options for better visualization)</li>
+<li>USB data transfer cable.</li>
+</ul>
+<h3 id="block-diagram">Block Diagram</h3>
+<p><img src="../Images/BlockDiagram.png" alt="BlockDiagram"></p>
+<h3 id="tutorial">Tutorial</h3>
+<p>Here&apos;s the step-wise tutorial to automate the game.</p>
+<h4 id="step-1-using-adb-tool-to-capture-screenshot">Step 1: Using ADB Tool to capture screenshot</h4>
+<p>The following command instantaneously takes the screenshot of the connected device and stores it in the SD card following the specified path.</p>
+<pre><code class="lang-MATLAB">system(<span class="hljs-string">&apos; adb shell screencap -p /sdcard/screen.png &apos;</span>);
+</code></pre>
+<p>The following command pulls it from the SD card of the android device into the working system following the path specified.</p>
+<pre><code class="lang-MATLAB">system(<span class="hljs-string">&apos; adb pull /sdcard/screen.png &apos;</span>);
+</code></pre>
+<p>The pulled image is stored in the form of a matrix of pixel values by the MATLAB.                </p>
+<h4 id="step-2-image-processing">Step 2: Image processing</h4>
+<p>After taking screenshot main part of game is cropped out. Since Target block is of almost red color. So for specially that block, red color thresholding is performed.</p>
+<pre><code class="lang-MATLAB">ImBW = Im(:,:,<span class="hljs-number">2</span>) &lt; <span class="hljs-number">10</span>;
+S = regionprops(ImBW,<span class="hljs-string">&apos;BoundingBox&apos;</span>,<span class="hljs-string">&apos;Area&apos;</span>);
+</code></pre>
+<p>S.BoundingBox gives the x, y, width and height of target block. </p>
+<p>Now to detect other blocks position other color thresholding is applied.</p>
+<pre><code class="lang-MATLAB">ImBW = Im(:, :, <span class="hljs-number">1</span>) &gt; <span class="hljs-number">220</span>;
+ImBW = imfill(ImBW,<span class="hljs-string">&apos;holes&apos;</span>);
+S = regionprops(ImBW,<span class="hljs-string">&apos;BoundingBox&apos;</span>,<span class="hljs-string">&apos;Area&apos;</span>);
+
+<span class="hljs-keyword">for</span> in=<span class="hljs-number">1</span>:<span class="hljs-built_in">numel</span>(S)
+    <span class="hljs-keyword">if</span> S(in).Area &gt; <span class="hljs-number">5000</span>
+        <span class="hljs-comment">% take only those block whose Area is &gt; 5000 since regionprops may detect small on. of rectangles. </span>
+    <span class="hljs-keyword">end</span>
+<span class="hljs-keyword">end</span>
+</code></pre>
+<h4 id="step-3-algorithm">Step 3: Algorithm</h4>
+<p>The algorithm uses a simple breadth first search to find a particular order of moves to free the red block.</p>
+<pre><code>    Enqueue the current board
+    while Q not empty:
+        Dequeue a board and examine it
+        can block escape?
+            he can! Ok
+        he cant?
+            for each possible board that can arise out of this one
+                add board to END of Q
+</code></pre><p>The code is written in C++. It takes command line string input and return string have order of moves. Using following commands in matlab we can run C++ program.</p>
+<pre><code class="lang-MATLAB"><span class="hljs-comment">%  s is input string.</span>
+cmd = <span class="hljs-string">&apos;unblock.exe&apos;</span>;
+<span class="hljs-matrix">[status,out]</span> = system(<span class="hljs-matrix">[cmd s]</span>);
+</code></pre>
+<h4 id="step-4-using-adb-tool-to-simulate-touch">Step 4: Using ADB Tool to simulate touch</h4>
+<p>The following command swipes from the point (x1,y1) on the screen to the point (x2, y2). </p>
+<pre><code class="lang-MATLAB">system(<span class="hljs-matrix">[<span class="hljs-string">&apos;adb shell input swipe &apos;</span> <span class="hljs-string">&apos;&apos;</span> num2str(x1) <span class="hljs-string">&apos; &apos;</span> num2str(y1) <span class="hljs-string">&apos; &apos;</span> num2str(x2) <span class="hljs-string">&apos; &apos;</span> num2str(y2) <span class="hljs-string">&apos; 100&apos;</span>]</span>);
+</code></pre>
+<h3 id="conclusions">Conclusions</h3>
+<p>This way, the game is automated. The code works for all levels in the game. You can run the code in a loop to solve all the 500 levels available in the game at once.</p>
 
                     
                     </section>
@@ -714,10 +781,10 @@
         </div>
 
         
-        <a href="../Examples/all_others.html" class="navigation navigation-prev " aria-label="Previous page: Other Games"><i class="fa fa-angle-left"></i></a>
+        <a href="../Examples/11-flow-free.html" class="navigation navigation-prev " aria-label="Previous page: Flow free"><i class="fa fa-angle-left"></i></a>
         
         
-        <a href="../Acknowledgements/contributors.html" class="navigation navigation-next " aria-label="Next page: Contributors"><i class="fa fa-angle-right"></i></a>
+        <a href="../Examples/electronics.html" class="navigation navigation-next " aria-label="Next page: Using Electronics"><i class="fa fa-angle-right"></i></a>
         
     </div>
 </div>

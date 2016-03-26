@@ -5,7 +5,7 @@
         <!-- head:start -->
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <title>Acknowledgements | Building Mobile Game Solvers</title>
+        <title>3D Bowling | Building Mobile Game Solvers</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="generator" content="GitBook 2.6.6">
@@ -37,10 +37,10 @@
         
     
     
-    <link rel="next" href="../Acknowledgements/contributors.html" />
+    <link rel="next" href="../Examples/08-tic-tac-toe2.html" />
     
     
-    <link rel="prev" href="../Examples/all_others.html" />
+    <link rel="prev" href="../Examples/image.html" />
     
 
         <!-- head:end -->
@@ -49,9 +49,9 @@
         <!-- body:start -->
         
     <div class="book"
-        data-level="6"
-        data-chapter-title="Acknowledgements"
-        data-filepath="Acknowledgements/README.md"
+        data-level="5.1.1"
+        data-chapter-title="3D Bowling"
+        data-filepath="Examples/01-3d-bowling.md"
         data-basepath=".."
         data-revision="Mon Mar 28 2016 18:55:04 GMT+0530 (IST)"
         data-innerlanguage="">
@@ -438,7 +438,7 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="5.1.1" data-path="Examples/01-3d-bowling.html">
+        <li class="chapter active" data-level="5.1.1" data-path="Examples/01-3d-bowling.html">
             
                 
                     <a href="../Examples/01-3d-bowling.html">
@@ -617,7 +617,7 @@
             
         </li>
     
-        <li class="chapter active" data-level="6" data-path="Acknowledgements/index.html">
+        <li class="chapter " data-level="6" data-path="Acknowledgements/index.html">
             
                 
                     <a href="../Acknowledgements/index.html">
@@ -701,9 +701,52 @@
                 
                     <section class="normal" id="section-">
                     
-                        <h1 id="acknowledgements">Acknowledgements</h1>
-<p>I would like to thank The Lakshya Foundation and NIT Warangal for providing us with the workspace and ideal environment which was a major contributor.</p>
-<p>I would also like to thank Anand Rajagopalan, Ravi Prakash and Gopala Krishna for providing valuble feedback on the book.</p>
+                        <h1 id="3d--bowling">3D  Bowling</h1>
+<h3 id="game-description">Game Description</h3>
+<p>In this game, the task of this player is to knock out as many pins as possible in a throw. You can throw the ball by swiping across the screen.</p>
+<p><strong>Playstore Link:</strong> <a href="https://play.google.com/store/apps/details?id=com.threed.bowling&amp;hl=en" target="_blank">3D Bowling</a></p>
+<p><img src="../Images/3dbowlingps.png" alt="playstore image">
+<img src="../Images/3dbowlingim.png" alt="game"></p>
+<p><strong>Difficulty Level:</strong> Easy</p>
+<p>You can see a demo video of the working of this game at the following link: <a href="https://youtu.be/fvfRw3w-E4s" target="_blank">https://youtu.be/fvfRw3w-E4s</a></p>
+<h3 id="overview">Overview</h3>
+<p>It&apos;s observed that a swipe across the center of the screen is the best way to drop maximum pins.</p>
+<h3 id="requirements">Requirements</h3>
+<ul>
+<li>Computer with MATLAB, ADB Tool and required drivers set up.</li>
+<li>An Android Device with the &apos;3D bowling&apos; game installed on it. (Turn on the Developer options for better visualization)</li>
+<li>USB data transfer cable</li>
+</ul>
+<h3 id="block-diagram">Block Diagram</h3>
+<p><img src="../Images/BlockDiagram.png" alt="image"></p>
+<h3 id="tutorial">Tutorial</h3>
+<p>Here&apos;s the step-wise tutorial to automate the game.</p>
+<p><a href="https://github.com/GameAutomators/3D-Bowling" target="_blank">source code</a></p>
+<h4 id="step-1-using-adb-tool-to-capture-screenshot">Step 1: Using ADB Tool to capture screenshot</h4>
+<p>The following command instantaneously takes the screenshot of the connected device and stores it in the SD card following the specified path.</p>
+<pre><code class="lang-MATLAB">system(<span class="hljs-string">&apos;adb shell screencap -p /sdcard/screen.png&apos;</span>);
+</code></pre>
+<p>The following command pulls it from the SD card of the android device into the working system following the path specified.</p>
+<pre><code class="lang-MATLAB">system(<span class="hljs-string">&apos;adb pull /sdcard/screen.png&apos;</span>);
+</code></pre>
+<p>The pulled image is stored in the form of a matrix of pixel values by the MATLAB.</p>
+<h3 id="step-2-processing-the-image">Step 2: Processing the image</h3>
+<p>The pulled image is read and the two sets of coordinates are chosen such that they lie on the vertical axis that passes through the centre of the screen.</p>
+<pre><code class="lang-MATLAB">  imread(<span class="hljs-string">&apos;screen.png&apos;</span>);
+</code></pre>
+<h4 id="step-3-swipe-across-the-screen">Step 3: Swipe across the screen</h4>
+<p>A swipe across the screen can be simulated by using the following command. </p>
+<pre><code class="lang-MATLAB">system(<span class="hljs-string">&apos;adb shell input swipe x1 y1 x2 y2&apos;</span>);
+</code></pre>
+<p>where (x1,y1) and (x2,y2) are the cooridinates that were chosen.</p>
+<p>Note: The swipe must be in the upward direction.</p>
+<h4 id="step-4-wait">Step 4: Wait</h4>
+<p>We use a delay of 2 seconds for waiting for the animation of the swipe to be completed and ready for next throw. These two steps can be used in a loop to complete the whole game. </p>
+<pre><code class="lang-MATLAB">pause(<span class="hljs-number">2</span>);
+</code></pre>
+<h3 id="conclusions">Conclusions</h3>
+<p>Ideally, the algorithm should be able to win each and every time because it&#x2019;s playing the best move every time. But there is a random element that has been programmed into the game because of which the ideal move doesn&#x2019;t always work.</p>
+<p>This is an inefficient way to solve the game. A better method would be to choose the swipe direction depending on the location of the balls present on the screen.</p>
 
                     
                     </section>
@@ -714,10 +757,10 @@
         </div>
 
         
-        <a href="../Examples/all_others.html" class="navigation navigation-prev " aria-label="Previous page: Other Games"><i class="fa fa-angle-left"></i></a>
+        <a href="../Examples/image.html" class="navigation navigation-prev " aria-label="Previous page: Using Image Processing"><i class="fa fa-angle-left"></i></a>
         
         
-        <a href="../Acknowledgements/contributors.html" class="navigation navigation-next " aria-label="Next page: Contributors"><i class="fa fa-angle-right"></i></a>
+        <a href="../Examples/08-tic-tac-toe2.html" class="navigation navigation-next " aria-label="Next page: Tic Tac Toe"><i class="fa fa-angle-right"></i></a>
         
     </div>
 </div>

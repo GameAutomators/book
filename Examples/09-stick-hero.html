@@ -5,7 +5,7 @@
         <!-- head:start -->
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <title>Acknowledgements | Building Mobile Game Solvers</title>
+        <title>Stick Hero | Building Mobile Game Solvers</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="generator" content="GitBook 2.6.6">
@@ -37,10 +37,10 @@
         
     
     
-    <link rel="next" href="../Acknowledgements/contributors.html" />
+    <link rel="next" href="../Examples/all_others.html" />
     
     
-    <link rel="prev" href="../Examples/all_others.html" />
+    <link rel="prev" href="../Examples/both.html" />
     
 
         <!-- head:end -->
@@ -49,9 +49,9 @@
         <!-- body:start -->
         
     <div class="book"
-        data-level="6"
-        data-chapter-title="Acknowledgements"
-        data-filepath="Acknowledgements/README.md"
+        data-level="5.3.1"
+        data-chapter-title="Stick Hero"
+        data-filepath="Examples/09-stick-hero.md"
         data-basepath=".."
         data-revision="Mon Mar 28 2016 18:55:04 GMT+0530 (IST)"
         data-innerlanguage="">
@@ -577,7 +577,7 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="5.3.1" data-path="Examples/09-stick-hero.html">
+        <li class="chapter active" data-level="5.3.1" data-path="Examples/09-stick-hero.html">
             
                 
                     <a href="../Examples/09-stick-hero.html">
@@ -617,7 +617,7 @@
             
         </li>
     
-        <li class="chapter active" data-level="6" data-path="Acknowledgements/index.html">
+        <li class="chapter " data-level="6" data-path="Acknowledgements/index.html">
             
                 
                     <a href="../Acknowledgements/index.html">
@@ -701,9 +701,44 @@
                 
                     <section class="normal" id="section-">
                     
-                        <h1 id="acknowledgements">Acknowledgements</h1>
-<p>I would like to thank The Lakshya Foundation and NIT Warangal for providing us with the workspace and ideal environment which was a major contributor.</p>
-<p>I would also like to thank Anand Rajagopalan, Ravi Prakash and Gopala Krishna for providing valuble feedback on the book.</p>
+                        <h1 id="stick-hero">Stick Hero</h1>
+<h3 id="game-description">Game Description</h3>
+<p>In this game, the player need to hold on the screen such that the stick that the man is holding increase its length such that the stick can be used to across the gap between two black pillars.</p>
+<p><strong>Playstore Link:</strong> <a href="https://play.google.com/store/apps/details?id=com.ketchapp.stickhero&amp;hl=en" target="_blank">Stick Hero</a></p>
+<p><strong>Difficulty Level:</strong> Moderate</p>
+<p>You can see a demo video of the working of this game at the following link: <a href="https://youtu.be/Na2GrGcEe9Q" target="_blank">https://youtu.be/Na2GrGcEe9Q</a></p>
+<div class="row" style="text-align:center;">
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/Na2GrGcEe9Q" frameborder="0" allowfullscreen></iframe>
+</div> 
+
+<h3 id="overview">Overview</h3>
+<p>The black pillars are detected using image processing and the distance between them is calculated. This distance is converted to time by using a linear equation. The screen is touched by using the adb tool library.</p>
+<h3 id="requirements">Requirements</h3>
+<ul>
+<li>An Android Device with the &#x2018;Stick Hero&#x2019; game installed in it.</li>
+<li>Single Strand Wires, Coins, Relays are used to simulate the touch on the capacitive touch screen of phones and tablets.</li>
+<li>Arduino is used to control the duration of the touch.</li>
+<li>Matlab: Used for Image Processing.</li>
+<li>Arduino IDE: For programming the Arduino.</li>
+<li>IP Cam: It is an android app which enables us to use our smartphones cam as a web cam. You can use a webcam directly if you have a good quality webcam available.</li>
+</ul>
+<h3 id="connection-diagram">Connection Diagram</h3>
+<p><img src="../Images/stickhero-diagram.PNG" alt="ConnectionDiagram"></p>
+<h3 id="block-diagram">Block Diagram</h3>
+<p><img src="../Images/methods-3.png" alt="BlockDiagram"></p>
+<h3 id="tutorial">Tutorial</h3>
+<p>Here&apos;s the step-wise tutorial to automate the game using approach 3.</p>
+<h4 id="step-1-detecting-the-black-pillars">Step 1: Detecting the black pillars</h4>
+<p>This is done by using Matlab. The image that is captured from the IP Cam is processed and the locations of the black pillars are determined. The distance between the black pillars is calculated and the corresponding data is sent to the Arduino through serial communication.</p>
+<p>The source code for the above processing can be found <a href="https://github.com/psurya1994/arduino-plays-stick-hero/tree/master/Code/MATLAB" target="_blank">here</a>.</p>
+<h4 id="step-2-determining-the-duration-of-the-touch">Step 2: Determining the duration of the touch</h4>
+<p>Based on the data arrived from Matlab, the duration of the touch is adjusted such that the stick exactly falls on the adjacent pillar.</p>
+<p>The source code for the arduino can be found <a href="https://github.com/psurya1994/arduino-plays-stick-hero/tree/master/Code/Arduino" target="_blank">here</a></p>
+<h4 id="step-3-simulating-touch">Step 3: Simulating Touch</h4>
+<p>Relays are directly connected to the output pin of the Arduino. It is equivalent to a touch if the voltage given is high as there is a path for the current to flow to the ground. It is equivalent to not touching if the voltage given is low.</p>
+<p>Run the <a href="https://github.com/psurya1994/arduino-plays-piano-tiles/blob/master/Code/test_touch/test_touch.ino" target="_blank">test_relay code</a> at this link to see if the electronic touch is simulated properly.</p>
+<h3 id="conclusions">Conclusions</h3>
+<p>This way, stick hero game can be automated. If setup properly, the system plays the game forever.</p>
 
                     
                     </section>
@@ -714,10 +749,10 @@
         </div>
 
         
-        <a href="../Examples/all_others.html" class="navigation navigation-prev " aria-label="Previous page: Other Games"><i class="fa fa-angle-left"></i></a>
+        <a href="../Examples/both.html" class="navigation navigation-prev " aria-label="Previous page: Using Image Processing and Electronics"><i class="fa fa-angle-left"></i></a>
         
         
-        <a href="../Acknowledgements/contributors.html" class="navigation navigation-next " aria-label="Next page: Contributors"><i class="fa fa-angle-right"></i></a>
+        <a href="../Examples/all_others.html" class="navigation navigation-next " aria-label="Next page: Other Games"><i class="fa fa-angle-right"></i></a>
         
     </div>
 </div>

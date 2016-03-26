@@ -5,7 +5,7 @@
         <!-- head:start -->
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <title>Acknowledgements | Building Mobile Game Solvers</title>
+        <title>Flow free | Building Mobile Game Solvers</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="generator" content="GitBook 2.6.6">
@@ -37,10 +37,10 @@
         
     
     
-    <link rel="next" href="../Acknowledgements/contributors.html" />
+    <link rel="next" href="../Examples/10-unblockme.html" />
     
     
-    <link rel="prev" href="../Examples/all_others.html" />
+    <link rel="prev" href="../Examples/08-tic-tac-toe2.html" />
     
 
         <!-- head:end -->
@@ -49,9 +49,9 @@
         <!-- body:start -->
         
     <div class="book"
-        data-level="6"
-        data-chapter-title="Acknowledgements"
-        data-filepath="Acknowledgements/README.md"
+        data-level="5.1.4"
+        data-chapter-title="Flow free"
+        data-filepath="Examples/11-flow-free.md"
         data-basepath=".."
         data-revision="Mon Mar 28 2016 18:55:04 GMT+0530 (IST)"
         data-innerlanguage="">
@@ -475,7 +475,7 @@
             
         </li>
     
-        <li class="chapter " data-level="5.1.4" data-path="Examples/11-flow-free.html">
+        <li class="chapter active" data-level="5.1.4" data-path="Examples/11-flow-free.html">
             
                 
                     <a href="../Examples/11-flow-free.html">
@@ -617,7 +617,7 @@
             
         </li>
     
-        <li class="chapter active" data-level="6" data-path="Acknowledgements/index.html">
+        <li class="chapter " data-level="6" data-path="Acknowledgements/index.html">
             
                 
                     <a href="../Acknowledgements/index.html">
@@ -701,9 +701,57 @@
                 
                     <section class="normal" id="section-">
                     
-                        <h1 id="acknowledgements">Acknowledgements</h1>
-<p>I would like to thank The Lakshya Foundation and NIT Warangal for providing us with the workspace and ideal environment which was a major contributor.</p>
-<p>I would also like to thank Anand Rajagopalan, Ravi Prakash and Gopala Krishna for providing valuble feedback on the book.</p>
+                        <h1 id="freeflow">FreeFlow</h1>
+<h3 id="game-description">Game Description</h3>
+<p>This is a single player game. The player has to connect the similar colors in such a way that path of two colors don&apos;t intersect.</p>
+<p><strong>Playstore Link:</strong> <a href="https://play.google.com/store/apps/details?id=com.bigduckgames.flow" target="_blank">FlowFree</a></p>
+<p><img src="../Images/playstore_flowfree.png" alt="Playstore">
+<img src="../Images/flowfree.png" alt="Image"></p>
+<p><strong>Difficulty level:</strong> Moderate</p>
+<p>You can see a demo video of the working of this game at the following link: <a href="https://youtu.be/kfxZCnNZfTU" target="_blank">https://youtu.be/kfxZCnNZfTU</a></p>
+<div class="row" style="text-align:center;">
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/kfxZCnNZfTU" frameborder="0" allowfullscreen></iframe>
+</div> 
+
+<h3 id="overview">Overview</h3>
+<p>First, using image processing all the colors are recognized with their locations. Using backtrack algorithm game is solved and the touch is simulated appropriately using adb tool.</p>
+<h3 id="requirements">Requirements</h3>
+<ul>
+<li>Computer with MATLAB, ADB Tool and required drivers set up.</li>
+<li>An Android Device with the this game installed on it. (Turn on the Developer options for better visualization)</li>
+<li>USB data transfer cable.</li>
+</ul>
+<h3 id="block-diagram">Block Diagram</h3>
+<p><img src="../Images/BlockDiagram.png" alt="BlockDiagram"></p>
+<h3 id="tutorial">Tutorial</h3>
+<p>Here&apos;s the step-wise tutorial to automate the game.</p>
+<h4 id="step-1-using-adb-tool-to-capture-screenshot">Step 1: Using ADB Tool to capture screenshot</h4>
+<p>The following command instantaneously takes the screenshot of the connected device and stores it in the SD card following the specified path.</p>
+<pre><code class="lang-MATLAB">system(<span class="hljs-string">&apos; adb shell screencap -p /sdcard/screen.png &apos;</span>);
+</code></pre>
+<p>The following command pulls it from the SD card of the android device into the working system following the path specified.</p>
+<pre><code class="lang-MATLAB">system(<span class="hljs-string">&apos; adb pull /sdcard/screen.png &apos;</span>);
+</code></pre>
+<p>The pulled image is stored in the form of a matrix of pixel values by the MATLAB.</p>
+<h4 id="step-2-image-processing">Step 2: Image processing</h4>
+<p>Once the screenshot is obtained, we apply image processing on cropped image of screenshot (main part of game).</p>
+<pre><code class="lang-MATLAB"><span class="hljs-matrix">[centres, radii]</span> = imfindcircles(crop_img, <span class="hljs-matrix">[rad_low rad_high]</span>, <span class="hljs-string">&apos;Sensitivity&apos;</span>, <span class="hljs-number">0.96</span>);
+</code></pre>
+<p>If it is not detetcting the all cirlces then color thresholding is applied for that group of colors and each color is assigned a new id. For blank cell id is zero.</p>
+<p>Further, this grid is converted into a string and passed as an argument to algorithm.</p>
+<h4 id="step-3-algorithm">Step 3: Algorithm</h4>
+<p>The algorithm checks all the possible ways using back tracking and tries to solve it under given rules and solved matrix is returned. The code is written in c++. It takes command line string input and return string output of same length. Here&apos;s the code that is used in MATLAB for this purpose.</p>
+<pre><code class="lang-MATLAB"><span class="hljs-comment">%  s is input string.</span>
+cmd = <span class="hljs-string">&apos;flowfree.exe &apos;</span>;
+<span class="hljs-matrix">[status,out]</span> = system(<span class="hljs-matrix">[cmd s]</span>);
+</code></pre>
+<h4 id="step-4-using-adb-tool-to-simulate-touch">Step 4: Using ADB Tool to simulate touch</h4>
+<p>The following command swipes from the point(x1,y1) on the screen to the co-ordinates mentioned as (x2, y2) i.e. upto the first turn and then second swipe upto another turn this goes until it meets its color mate (as we can&apos;t swipe continuously). This is used to simulate touch at the appropriate points where we want to place the number.</p>
+<pre><code class="lang-MATLAB"><span class="hljs-comment">% swiping from (x1,y1) to (x2,y2) on the grid</span>
+system(<span class="hljs-string">&apos; adb shell input swipe x1 y1 x2 y2 100&apos;</span>);
+</code></pre>
+<h3 id="conclusions">Conclusions</h3>
+<p>This way, the game flow free is automated. This code works well only till 10x10 blocks. For higher sizes, this implementation takes too much time.</p>
 
                     
                     </section>
@@ -714,10 +762,10 @@
         </div>
 
         
-        <a href="../Examples/all_others.html" class="navigation navigation-prev " aria-label="Previous page: Other Games"><i class="fa fa-angle-left"></i></a>
+        <a href="../Examples/08-tic-tac-toe2.html" class="navigation navigation-prev " aria-label="Previous page: Tic Tac Toe"><i class="fa fa-angle-left"></i></a>
         
         
-        <a href="../Acknowledgements/contributors.html" class="navigation navigation-next " aria-label="Next page: Contributors"><i class="fa fa-angle-right"></i></a>
+        <a href="../Examples/10-unblockme.html" class="navigation navigation-next " aria-label="Next page: Unblock Me"><i class="fa fa-angle-right"></i></a>
         
     </div>
 </div>

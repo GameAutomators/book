@@ -5,7 +5,7 @@
         <!-- head:start -->
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <title>Acknowledgements | Building Mobile Game Solvers</title>
+        <title>Tic Tac Toe | Building Mobile Game Solvers</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="generator" content="GitBook 2.6.6">
@@ -37,10 +37,10 @@
         
     
     
-    <link rel="next" href="../Acknowledgements/contributors.html" />
+    <link rel="next" href="../Examples/11-flow-free.html" />
     
     
-    <link rel="prev" href="../Examples/all_others.html" />
+    <link rel="prev" href="../Examples/01-3d-bowling.html" />
     
 
         <!-- head:end -->
@@ -49,9 +49,9 @@
         <!-- body:start -->
         
     <div class="book"
-        data-level="6"
-        data-chapter-title="Acknowledgements"
-        data-filepath="Acknowledgements/README.md"
+        data-level="5.1.2"
+        data-chapter-title="Tic Tac Toe"
+        data-filepath="Examples/08-tic-tac-toe2.md"
         data-basepath=".."
         data-revision="Mon Mar 28 2016 18:55:04 GMT+0530 (IST)"
         data-innerlanguage="">
@@ -453,7 +453,7 @@
             
         </li>
     
-        <li class="chapter " data-level="5.1.2" data-path="Examples/08-tic-tac-toe2.html">
+        <li class="chapter active" data-level="5.1.2" data-path="Examples/08-tic-tac-toe2.html">
             
                 
                     <a href="../Examples/08-tic-tac-toe2.html">
@@ -617,7 +617,7 @@
             
         </li>
     
-        <li class="chapter active" data-level="6" data-path="Acknowledgements/index.html">
+        <li class="chapter " data-level="6" data-path="Acknowledgements/index.html">
             
                 
                     <a href="../Acknowledgements/index.html">
@@ -701,9 +701,83 @@
                 
                     <section class="normal" id="section-">
                     
-                        <h1 id="acknowledgements">Acknowledgements</h1>
-<p>I would like to thank The Lakshya Foundation and NIT Warangal for providing us with the workspace and ideal environment which was a major contributor.</p>
-<p>I would also like to thank Anand Rajagopalan, Ravi Prakash and Gopala Krishna for providing valuble feedback on the book.</p>
+                        <h1 id="tic-tac-toe---automated">Tic Tac Toe  - Automated</h1>
+<h3 id="game-description">Game Description</h3>
+<p>This is a two-player game. The player and the system get alternative chances to mark their move on the 3x3 grid provided. One who marks 3 linearly oriented squares first, wins the game. If none of the players can do this, the game ends to be a draw. (The system&#x2019;s move is marked with a circle and the player&#x2019;s with a cross. )</p>
+<p><strong>Playstore Link:</strong> <a href="https://play.google.com/store/apps/details?id=com.pinkpointer.tictactoe&amp;hl=en" target="_blank">Tic Tac Toe</a></p>
+<p><img src="../Images/tttps.png" alt="Playstore"> 
+<img src="../Images/tttim.png" alt="Image"></p>
+<p><strong>Difficulty level:</strong> Easy</p>
+<h3 id="overview">Overview</h3>
+<p>The player starts at random cell. The system&#x2019;s move is identified using Image processing. We are simply calculating intersecting points for blank, O and X for each one of Nine Cell. The further move is calculated by the MinMax algorithm and is marked in the concerned box using ADB Tool. This continues as the algorithm tries to win the game in the best way possible</p>
+<p><a href="https://github.com/gameautomators/TicTacToe-v2" target="_blank">Get Source Code</a></p>
+<h3 id="requirements">Requirements</h3>
+<ul>
+<li>Computer with OpenCV-Python, ADB Tool, Python and required drivers set up.</li>
+<li>An Android Device with the &#x2018;Tic Tac Toe&#x2019; game installed on it. (Turn on the Developer options for better visualization)</li>
+<li>USB data transfer cable.</li>
+</ul>
+<h3 id="block-diagram">Block Diagram</h3>
+<p><img src="../Images/BlockDiagram.png" alt="BlockDiagram"></p>
+<h3 id="tutorial">Tutorial</h3>
+<h4 id="step-1-using-adb-tool-to-capture-screenshot">Step 1: Using ADB Tool to capture screenshot</h4>
+<p>The following command instantaneously takes the screenshot of the connected device and stores it in the SD card following the specified path.</p>
+<pre><code class="lang-MATLAB">system(<span class="hljs-string">&apos; adb shell screencap -p /sdcard/screen.png &apos;</span>);
+</code></pre>
+<p>The following command pulls it from the SD card of the android device into the working system following the path specified.</p>
+<pre><code class="lang-MATLAB">system(<span class="hljs-string">&apos; adb pull /sdcard/screen.png &apos;</span>);
+</code></pre>
+<p>The pulled image is stored in the form of a matrix of pixel values by the MATLAB.</p>
+<h4 id="step-2-image-processing">Step 2: Image processing</h4>
+<p>Once the screenshot is obtained, nine different points in the 9 boxes are chosen and processed as blank, O or X. For this game blank cell Red color value is - 255 (RGB) , O&apos;s cell R value is - 105 and X&apos;s cell R value is - 248.</p>
+<p></p><p>Here 0 -&gt; blank, 1 -&gt; system&apos;s move and 2 -&gt; player.</p>
+Now game board is updated with current move. Game was tested on only device Moto G3 (1280x720), for this device intersection of three types of cell is calculated using pixel-color information of screenshot. It is valid for any device with this resolution.<p></p>
+<h4 id="step-3-algorithm">Step 3: Algorithm</h4>
+<p>Minimax is a decision rule used in decision theory, game theory, statistics and philosophy for minimizing the possible loss for a worst case (maximum loss) scenario. Originally formulated for two-player zero-sum game theory, covering both the cases where players take alternate moves and those where they make simultaneous moves, it has also been extended to more complex games and to general decision-making in the presence of uncertainty.</p>
+<p>For Detailed Explanation of this Algorithm <a href="http://neverstopbuilding.com/minimax" target="_blank">Click Here</a></p>
+<p><img src="../Images/algo.jpg" alt="Image"></p>
+<h6 id="algorithm-complexity">Algorithm Complexity</h6>
+<pre><code>Time Complexity: O(b^d), where b is no. of blank cell and d is the depth to which algo. goes
+Space Complexity: O(bd)
+</code></pre><pre><code class="lang-python"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">min_max_move</span><span class="hljs-params">(instance, marker)</span>:</span>
+    bestmove = <span class="hljs-keyword">None</span>
+    bestscore = <span class="hljs-keyword">None</span>
+
+    <span class="hljs-keyword">if</span> marker == <span class="hljs-number">2</span>:
+        <span class="hljs-keyword">for</span> m <span class="hljs-keyword">in</span> instance.get_free_cells():
+            instance.mark(m, <span class="hljs-number">2</span>)
+            <span class="hljs-keyword">if</span> instance.is_gameover():
+                score = instance.get_score()
+            <span class="hljs-keyword">else</span>:
+                mov_pos, score = min_max_move(instance, <span class="hljs-number">1</span>)
+            instance.revert_last_move()
+
+            <span class="hljs-keyword">if</span> bestscore == <span class="hljs-keyword">None</span> <span class="hljs-keyword">or</span> score &gt; bestscore:
+                bestscore = score
+                bestmove = m
+    <span class="hljs-keyword">else</span>:
+        <span class="hljs-keyword">for</span> m <span class="hljs-keyword">in</span> instance.get_free_cells():
+            instance.mark(m, <span class="hljs-number">1</span>)
+            <span class="hljs-keyword">if</span> instance.is_gameover():
+                score = instance.get_score()
+            <span class="hljs-keyword">else</span>:
+                mov_pos, score = min_max_move(instance, <span class="hljs-number">2</span>)
+            instance.revert_last_move()
+
+            <span class="hljs-keyword">if</span> bestscore == <span class="hljs-keyword">None</span> <span class="hljs-keyword">or</span> score &lt; bestscore:
+                bestscore = score
+                bestmove = m
+    <span class="hljs-keyword">return</span> bestmove, bestscore
+</code></pre>
+<h4 id="step-4-using-adb-tool-to-simulate-touch">Step 4: Using ADB Tool to simulate touch</h4>
+<p></p><p>from the result of algorithm tap position is calculated.</p>
+The following command taps at the point on the screen with the co-ordinates mentioned as (x, y). This is used to simulate touch at the appropriate points where we want to make a move.<p></p>
+<pre><code class="lang-MATLAB">system(<span class="hljs-string">&apos; adb shell input tap x y &apos;</span>);
+</code></pre>
+<h4 id="step-5-testing">Step 5: Testing</h4>
+<p>After setting up environment, Open game and run script tictactoe.py .</p>
+<pre><code class="lang-python">    python tictactoe.py
+</code></pre>
 
                     
                     </section>
@@ -714,10 +788,10 @@
         </div>
 
         
-        <a href="../Examples/all_others.html" class="navigation navigation-prev " aria-label="Previous page: Other Games"><i class="fa fa-angle-left"></i></a>
+        <a href="../Examples/01-3d-bowling.html" class="navigation navigation-prev " aria-label="Previous page: 3D Bowling"><i class="fa fa-angle-left"></i></a>
         
         
-        <a href="../Acknowledgements/contributors.html" class="navigation navigation-next " aria-label="Next page: Contributors"><i class="fa fa-angle-right"></i></a>
+        <a href="../Examples/11-flow-free.html" class="navigation navigation-next " aria-label="Next page: Flow free"><i class="fa fa-angle-right"></i></a>
         
     </div>
 </div>
