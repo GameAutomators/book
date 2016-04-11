@@ -57,7 +57,7 @@
         data-chapter-title="Flow free"
         data-filepath="Examples/11-flow-free.md"
         data-basepath=".."
-        data-revision="Tue Apr 05 2016 11:15:26 GMT+0530 (IST)"
+        data-revision="Mon Apr 11 2016 21:51:31 GMT+0530 (IST)"
         data-innerlanguage="">
     
 
@@ -705,7 +705,7 @@
                 
                     <section class="normal" id="section-">
                     
-                        <h1 id="freeflow">FreeFlow</h1>
+                        <h2 id="freeflow">FreeFlow</h2>
 <h3 id="game-description">Game Description</h3>
 <p>This is a single player game. The player has to connect the similar colors in such a way that path of two colors don&apos;t intersect.</p>
 <p><strong>Playstore Link:</strong> <a href="https://play.google.com/store/apps/details?id=com.bigduckgames.flow" target="_blank">FlowFree</a></p>
@@ -713,10 +713,6 @@
 <img src="../Images/flowfree.png" alt="Image"></p>
 <p><strong>Difficulty level:</strong> Moderate</p>
 <p>You can see a demo video of the working of this game at the following link: <a href="https://youtu.be/kfxZCnNZfTU" target="_blank">https://youtu.be/kfxZCnNZfTU</a></p>
-<div class="row" style="text-align:center;">
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/kfxZCnNZfTU" frameborder="0" allowfullscreen></iframe>
-</div> 
-
 <h3 id="overview">Overview</h3>
 <p>First, using image processing all the colors are recognized with their locations. Using backtrack algorithm game is solved and the touch is simulated appropriately using adb tool.</p>
 <h3 id="requirements">Requirements</h3>
@@ -728,7 +724,7 @@
 <h3 id="block-diagram">Block Diagram</h3>
 <p><img src="../Images/BlockDiagram.png" alt="BlockDiagram"></p>
 <h3 id="tutorial">Tutorial</h3>
-<p>Here&apos;s the step-wise tutorial to automate the game.</p>
+<p>Here&apos;s the step-wise tutorial to automate the game. The source code is avaiable <a href="">here</a>.</p>
 <h4 id="step-1-using-adb-tool-to-capture-screenshot">Step 1: Using ADB Tool to capture screenshot</h4>
 <p>The following command instantaneously takes the screenshot of the connected device and stores it in the SD card following the specified path.</p>
 <pre><code class="lang-MATLAB">system(<span class="hljs-string">&apos; adb shell screencap -p /sdcard/screen.png &apos;</span>);

@@ -57,7 +57,7 @@
         data-chapter-title="Unblock Me"
         data-filepath="Examples/10-unblockme.md"
         data-basepath=".."
-        data-revision="Tue Apr 05 2016 11:15:26 GMT+0530 (IST)"
+        data-revision="Mon Apr 11 2016 21:51:31 GMT+0530 (IST)"
         data-innerlanguage="">
     
 
@@ -713,10 +713,6 @@
 <img src="../Images/unblock.png" alt="Image"></p>
 <p><strong>Difficulty level</strong>: Moderate</p>
 <p>You can see a demo video of the working of this game at the following link: <a href="https://youtu.be/_-aNdgeLc5w" target="_blank">https://youtu.be/_-aNdgeLc5w</a></p>
-<div class="row" style="text-align:center;">
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/_-aNdgeLc5w" frameborder="0" allowfullscreen></iframe>
-</div> 
-
 <h3 id="overview">Overview</h3>
 <p>First, using image processing all the blocks alignment and position is detected using image processing in MATLAB. Using breadth first search algorithm, the game is solved and blocks are moved to free the red block. The swipes on the screen are simulated using adb tool.</p>
 <h3 id="requirements">Requirements</h3>
@@ -728,7 +724,7 @@
 <h3 id="block-diagram">Block Diagram</h3>
 <p><img src="../Images/BlockDiagram.png" alt="BlockDiagram"></p>
 <h3 id="tutorial">Tutorial</h3>
-<p>Here&apos;s the step-wise tutorial to automate the game.</p>
+<p>Here&apos;s the step-wise tutorial to automate the game. The source code is avaiable <a href="https://github.com/GameAutomators/UnblockMe-Game" target="_blank">here</a>.</p>
 <h4 id="step-1-using-adb-tool-to-capture-screenshot">Step 1: Using ADB Tool to capture screenshot</h4>
 <p>The following command instantaneously takes the screenshot of the connected device and stores it in the SD card following the specified path.</p>
 <pre><code class="lang-MATLAB">system(<span class="hljs-string">&apos; adb shell screencap -p /sdcard/screen.png &apos;</span>);

@@ -57,7 +57,7 @@
         data-chapter-title="Using Image Processing and Electronics"
         data-filepath="Introduction/3-both.md"
         data-basepath=".."
-        data-revision="Tue Apr 05 2016 11:15:26 GMT+0530 (IST)"
+        data-revision="Mon Apr 11 2016 21:51:31 GMT+0530 (IST)"
         data-innerlanguage="">
     
 
@@ -706,11 +706,11 @@
                     <section class="normal" id="section-">
                     
                         <h2 id="using-electronics-and-image-processing">Using Electronics and Image Processing</h2>
-<p>In this method we will be using the concepts of electronics and image processing together to automate the game. The concepts of image processing  and electronics which we are going to use here is discussed in the following chapters.</p>
+<p>In this method we will be using the concepts of electronics and image processing together to automate the game. This helps us get over the problem we had which Approach 1 that it&apos;s slow. The concepts of image processing and electronics which we are going to use here is discussed in the following chapters.</p>
 <h3 id="approach">Approach</h3>
 <p><img src="../Images/methods-3.png" alt="image11"></p>
 <p><em>Fig.The image depicts the connection between the computer, microcontroller and the phone for game automation</em></p>
-<p>We use a webcam which streams the video of the mobile screen into the laptop that performs image processing to extract relevant features, generates the duration of touch and sends it to the microcontroller (Arduino here) which is used to simulate the touch on the phone screen using electronic circuitry.</p>
+<p>We use a webcam which streams the video of the mobile screen into the computer that performs image processing to extract relevant features, generates the duration of touch and sends it to the microcontroller which is used to simulate the touch on the phone screen using electronic circuitry. Recognize that we are not using adb tool here which makes this faster.</p>
 <p>For example, in the game &apos;Stick Hero&apos;, our webcam will capture the image of the screen and send it to the laptop where we can detect the pillars and the distace between them using image processing. Depending on the distance, we can send the information to the Arduino to simulate a touch for a specified time.</p>
 <h3 id="advantages-of-this-approach">Advantages of this approach</h3>
 <ul>
@@ -724,7 +724,7 @@
 <li>Since external lighting influences the image captured by the webcam, we may have to change the algorithm accordingly each time.</li>
 <li>Setting the touch part of circuit becomes difficult.</li>
 </ul>
-<p>We can increase the speed of image processing in this method by using libraries such as OpenCV or PIL instead of MATLAB&apos;s image processing toolbox.</p>
+<p>We can increase the speed of image processing in this method by using libraries such as OpenCV or PIL instead of MATLAB&apos;s image processing toolbox. But let&apos;s stick to MATLAB in this book.</p>
 
                     
                     </section>

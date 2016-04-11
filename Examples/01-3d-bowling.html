@@ -57,7 +57,7 @@
         data-chapter-title="3D Bowling"
         data-filepath="Examples/01-3d-bowling.md"
         data-basepath=".."
-        data-revision="Tue Apr 05 2016 11:15:26 GMT+0530 (IST)"
+        data-revision="Mon Apr 11 2016 21:51:31 GMT+0530 (IST)"
         data-innerlanguage="">
     
 
@@ -705,7 +705,7 @@
                 
                     <section class="normal" id="section-">
                     
-                        <h1 id="3d--bowling">3D  Bowling</h1>
+                        <h2 id="3d--bowling">3D  Bowling</h2>
 <h3 id="game-description">Game Description</h3>
 <p>In this game, the task of this player is to knock out as many pins as possible in a throw. You can throw the ball by swiping across the screen.</p>
 <p><strong>Playstore Link:</strong> <a href="https://play.google.com/store/apps/details?id=com.threed.bowling&amp;hl=en" target="_blank">3D Bowling</a></p>
@@ -724,8 +724,7 @@
 <h3 id="block-diagram">Block Diagram</h3>
 <p><img src="../Images/BlockDiagram.png" alt="image"></p>
 <h3 id="tutorial">Tutorial</h3>
-<p>Here&apos;s the step-wise tutorial to automate the game.</p>
-<p><a href="https://github.com/GameAutomators/3D-Bowling" target="_blank">source code</a></p>
+<p>Here&apos;s the step-wise tutorial to automate the game. The source code is avaiable <a href="https://github.com/GameAutomators/3D-Bowling" target="_blank">here</a>.</p>
 <h4 id="step-1-using-adb-tool-to-capture-screenshot">Step 1: Using ADB Tool to capture screenshot</h4>
 <p>The following command instantaneously takes the screenshot of the connected device and stores it in the SD card following the specified path.</p>
 <pre><code class="lang-MATLAB">system(<span class="hljs-string">&apos;adb shell screencap -p /sdcard/screen.png&apos;</span>);
@@ -736,7 +735,8 @@
 <p>The pulled image is stored in the form of a matrix of pixel values by the MATLAB.</p>
 <h3 id="step-2-processing-the-image">Step 2: Processing the image</h3>
 <p>The pulled image is read and the two sets of coordinates are chosen such that they lie on the vertical axis that passes through the centre of the screen.</p>
-<pre><code class="lang-MATLAB">  imread(<span class="hljs-string">&apos;screen.png&apos;</span>);
+<pre><code class="lang-MATLAB">a =  imread(<span class="hljs-string">&apos;screen.png&apos;</span>);
+imshow(a)
 </code></pre>
 <h4 id="step-3-swipe-across-the-screen">Step 3: Swipe across the screen</h4>
 <p>A swipe across the screen can be simulated by using the following command. </p>
