@@ -57,7 +57,7 @@
         data-chapter-title="Basic Commands"
         data-filepath="ImageProcessing/Matlab/1-basic.md"
         data-basepath="../.."
-        data-revision="Mon Apr 11 2016 21:51:31 GMT+0530 (IST)"
+        data-revision="Wed Apr 20 2016 10:53:40 GMT+0530 (IST)"
         data-innerlanguage="">
     
 
@@ -419,7 +419,7 @@
                         
                             <b>5.</b>
                         
-                        Example Games
+                        Solving Games
                     </a>
             
             
@@ -472,9 +472,17 @@
             
         </li>
     
-        <li class="chapter " data-level="5.1.3" data-path="Examples/03-find-the-difference.html">
+        <li class="chapter " data-level="5.1.3" data-path="Examples/02-find-the-difference.html">
             
-            <span><b>5.1.3.</b> Find The Difference</span>
+                
+                    <a href="../../Examples/02-find-the-difference.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.1.3.</b>
+                        
+                        Find The Difference
+                    </a>
             
             
         </li>
@@ -751,11 +759,11 @@ figure, imshow(d)
 <h4 id="imrotate">imrotate</h4>
 <p>This command can be used to rotate the image by given angle (in degrees) in a counterclockwise direction around its center point. To rotate the image clockwise, specify a negative value for angle. &apos;imrotate&apos; makes the output image large enough to contain the entire rotated image. Here&apos;s the syntax for doing the same.</p>
 <p><code>variable_name = imrotate(image, degrees)</code></p>
-<pre><code class="lang-MATLAB">e = imrotate(a, <span class="hljs-number">75</span>);
+<pre><code class="lang-MATLAB">e = imrotate(a, <span class="hljs-number">15</span>); <span class="hljs-comment">% rotate 15 degree in clockwise</span>
 imshow(e)
 </code></pre>
 <p><img src="../../Images/img-rotate.png" alt="rotate MATLAB"></p>
-<p>By default, imrotate uses nearest neighbor interpolation, setting the values of pixels in output_image that are outside the rotated image to 0 (zero).</p>
+<p>By default, imrotate uses nearest neighbor interpolation, setting the values of pixels in output image that are outside the rotated image to 0 (zero).</p>
 <h4 id="subplot">subplot</h4>
 <p>Creates axis in tiled positions. Whenever we need to display two or more images in one window, we use subplot. Here&apos;s the syntax.</p>
 <p><code>subplot(m, n, p)</code></p>
@@ -798,6 +806,14 @@ subplot(<span class="hljs-number">2</span>, <span class="hljs-number">2</span>, 
     
 
     
+    <script src="https://cdn.mathjax.org/mathjax/2.5-latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+
+    
+    <script src="../../gitbook/plugins/gitbook-plugin-mathjax/plugin.js"></script>
+    
+
+    
     <script src="../../gitbook/plugins/gitbook-plugin-search/lunr.min.js"></script>
     
 
@@ -815,7 +831,7 @@ subplot(<span class="hljs-number">2</span>, <span class="hljs-number">2</span>, 
 
 <script>
 require(["gitbook"], function(gitbook) {
-    var config = {"ga":{"token":"UA-74194055-1","configuration":"auto"},"youtube":{},"copy-code-button":{},"multipart":{},"highlight":{},"search":{"maxIndexSize":1000000},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2}};
+    var config = {"ga":{"token":"UA-74194055-1","configuration":"auto"},"mathjax":{"forceSVG":true},"youtube":{},"copy-code-button":{},"multipart":{},"highlight":{},"search":{"maxIndexSize":1000000},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2}};
     gitbook.start(config);
 });
 </script>

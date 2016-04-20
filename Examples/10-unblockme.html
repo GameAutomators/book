@@ -57,7 +57,7 @@
         data-chapter-title="Unblock Me"
         data-filepath="Examples/10-unblockme.md"
         data-basepath=".."
-        data-revision="Mon Apr 11 2016 21:51:31 GMT+0530 (IST)"
+        data-revision="Wed Apr 20 2016 10:53:40 GMT+0530 (IST)"
         data-innerlanguage="">
     
 
@@ -419,7 +419,7 @@
                         
                             <b>5.</b>
                         
-                        Example Games
+                        Solving Games
                     </a>
             
             
@@ -472,9 +472,17 @@
             
         </li>
     
-        <li class="chapter " data-level="5.1.3" data-path="Examples/03-find-the-difference.html">
+        <li class="chapter " data-level="5.1.3" data-path="Examples/02-find-the-difference.html">
             
-            <span><b>5.1.3.</b> Find The Difference</span>
+                
+                    <a href="../Examples/02-find-the-difference.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.1.3.</b>
+                        
+                        Find The Difference
+                    </a>
             
             
         </li>
@@ -705,7 +713,7 @@
                 
                     <section class="normal" id="section-">
                     
-                        <h1 id="unblockme">Unblockme</h1>
+                        <h2 id="unblockme">Unblockme</h2>
 <h3 id="game-description">Game Description</h3>
 <p>This is a single player game. The goal is to unblock the red block out of the board by sliding the other blocks out of the way, unblock it with the minimal moves.</p>
 <p><strong>Playstore Link:</strong> <a href="https://play.google.com/store/apps/details?id=com.kiragames.unblockmefree" target="_blank">Unblockme</a></p>
@@ -752,14 +760,14 @@ S = regionprops(ImBW,<span class="hljs-string">&apos;BoundingBox&apos;</span>,<s
 </code></pre>
 <h4 id="step-3-algorithm">Step 3: Algorithm</h4>
 <p>The algorithm uses a simple breadth first search to find a particular order of moves to free the red block.</p>
-<pre><code>    Enqueue the current board
-    while Q not empty:
-        Dequeue a board and examine it
-        can block escape?
-            he can! Ok
-        he cant?
-            for each possible board that can arise out of this one
-                add board to END of Q
+<pre><code>Enqueue the current board
+while Q not empty:
+    Dequeue a board and examine it
+    can block escape?
+        he can! Ok
+    he cant?
+        for each possible board that can arise out of this one
+            add board to END of Q
 </code></pre><p>The code is written in C++. It takes command line string input and return string have order of moves. Using following commands in matlab we can run C++ program.</p>
 <pre><code class="lang-MATLAB"><span class="hljs-comment">%  s is input string.</span>
 cmd = <span class="hljs-string">&apos;unblock.exe&apos;</span>;
@@ -801,6 +809,14 @@ cmd = <span class="hljs-string">&apos;unblock.exe&apos;</span>;
     
 
     
+    <script src="https://cdn.mathjax.org/mathjax/2.5-latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+
+    
+    <script src="../gitbook/plugins/gitbook-plugin-mathjax/plugin.js"></script>
+    
+
+    
     <script src="../gitbook/plugins/gitbook-plugin-search/lunr.min.js"></script>
     
 
@@ -818,7 +834,7 @@ cmd = <span class="hljs-string">&apos;unblock.exe&apos;</span>;
 
 <script>
 require(["gitbook"], function(gitbook) {
-    var config = {"ga":{"token":"UA-74194055-1","configuration":"auto"},"youtube":{},"copy-code-button":{},"multipart":{},"highlight":{},"search":{"maxIndexSize":1000000},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2}};
+    var config = {"ga":{"token":"UA-74194055-1","configuration":"auto"},"mathjax":{"forceSVG":true},"youtube":{},"copy-code-button":{},"multipart":{},"highlight":{},"search":{"maxIndexSize":1000000},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2}};
     gitbook.start(config);
 });
 </script>
